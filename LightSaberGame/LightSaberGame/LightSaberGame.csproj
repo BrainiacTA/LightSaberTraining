@@ -101,11 +101,15 @@
     <Compile Include="Command\DelegateComand.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Helpers\GameHelpers\CollisionCircle.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BaseViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\GameObjectsViewModels\GameObjectViewModel.cs" />
+    <Compile Include="ViewModels\GameObjectsViewModels\LightSaberViewModel.cs" />
+    <Compile Include="ViewModels\GameObjectsViewModels\ShotViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

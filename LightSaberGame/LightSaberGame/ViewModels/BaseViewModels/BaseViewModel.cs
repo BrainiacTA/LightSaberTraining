@@ -1,4 +1,4 @@
-﻿namespace LightSaberGame.ViewModels.BaseViewModel
+﻿namespace LightSaberGame.ViewModels.BaseViewModels
 {
     using System.ComponentModel;
     public class BaseViewModel : INotifyPropertyChanged
