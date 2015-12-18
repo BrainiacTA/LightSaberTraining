@@ -10,10 +10,10 @@
         public ShotViewModel(double t, double l, double r)
             : base(t, l)
         {
-            this.Radius = r;
+            this.Diameter = r;
         }
 
-        public double Radius
+        public double Diameter
         {
             get
             {
@@ -29,8 +29,8 @@
         public override IEnumerable<CollisionCircle> GetCollisionInfo()
         {
             var collisionsPoints = new List<CollisionCircle>();
-
-            collisionsPoints.Add(new CollisionCircle(this.Top, this.Left, this.Radius));
+            var centerX = this.Left - this.Diameter / 2;
+            collisionsPoints.Add(new CollisionCircle(this.Top, this.Left, this.Diameter/2));
 
             return collisionsPoints;
         }
