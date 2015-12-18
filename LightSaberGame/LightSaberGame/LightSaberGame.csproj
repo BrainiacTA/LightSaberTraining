@@ -110,6 +110,10 @@
     <Compile Include="ViewModels\GameObjectsViewModels\GameObjectViewModel.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\LightSaberViewModel.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\ShotViewModel.cs" />
+    <Compile Include="Views\CanvasListView.cs" />
+    <Compile Include="Views\LightSaber.xaml.cs">
+      <DependentUpon>LightSaber.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -118,6 +122,8 @@
     <None Include="LightSaberGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\GameImages\hilt.png" />
+    <Content Include="Assets\GameImages\lightsaber_27.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -136,12 +142,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\LightSaber.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\GameImages\" />
     <Folder Include="Assets\GameSounds\" />
     <Folder Include="Pages\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
