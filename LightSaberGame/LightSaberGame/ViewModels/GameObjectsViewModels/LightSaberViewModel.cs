@@ -10,11 +10,11 @@
         private double length;
         private double angle;
 
-        public LightSaberViewModel(double l, double t, double length, double a)
-            : base(l, t)
+        public LightSaberViewModel(double left, double top, double length, double angle)
+            : base(left, top)
         {
             this.Length = length;
-            this.Angle = a;
+            this.Angle = angle;
         }
 
         public double Length

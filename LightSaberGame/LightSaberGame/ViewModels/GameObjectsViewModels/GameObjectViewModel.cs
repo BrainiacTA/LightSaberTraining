@@ -9,10 +9,10 @@
         private double top;
         private double left;
 
-        public GameObjectViewModel(double t, double l)
+        public GameObjectViewModel(double left, double top)
         {
-            this.Top = t;
-            this.Left = l;
+            this.Top = top;
+            this.Left = left;
         }
         public double Top
         {

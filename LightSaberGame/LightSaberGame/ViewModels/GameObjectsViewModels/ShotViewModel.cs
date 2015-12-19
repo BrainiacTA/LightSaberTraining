@@ -7,10 +7,10 @@
     {
         private double radius;
 
-        public ShotViewModel(double t, double l, double r)
-            : base(t, l)
+        public ShotViewModel(double left, double top, double radius)
+            : base(left, top)
         {
-            this.Diameter = r;
+            this.Diameter = radius;
         }
 
         public double Diameter

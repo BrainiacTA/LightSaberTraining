@@ -1,4 +1,5 @@
 ﻿using LightSaberGame.Extensions;
+using LightSaberGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,9 @@ namespace LightSaberGame
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = new GameViewModel();
+
+            var s = this.DataContext as GameViewModel;
             //way to get child
             //var rect = VisualTreeHelper.GetChild( VisualTreeHelper.GetChild(this.saber, 0),1);
         }
