@@ -5,12 +5,26 @@
     xmlns:local="using:LightSaberGame.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters ="using:LightSaberGame.Helpers.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
-    <Canvas>
-        <Image Source="/Assets/GameImages/lightsaber_27.jpg" Height="250" Width="25"/>
-        <Rectangle Name="BladeArea" Fill="Transparent" Height="200" Width="25"/>
+    <UserControl.Resources>
+        <converters:MathConverter x:Key="MathConverter"></converters:MathConverter>
+    </UserControl.Resources>
+    <Canvas Name="cnt"
+            Height="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE*1.4}"
+            Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}">
+        <Image 
+                Name="blade" 
+                Source="/Assets/GameImages/Blade1to10.png" 
+                Height="{Binding BladeLenght}"
+                Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"/>
+        <Image 
+                Name="hilt" 
+                Source="/Assets/GameImages/Hilt1to4.png" 
+                Canvas.Top="{Binding BladeLenght}"
+                Height="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/2.5}" 
+                Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"/>
     </Canvas>
 </UserControl>

@@ -9,11 +9,12 @@
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--<userControls:LightSaber x:Name="saber"></userControls:LightSaber>-->
+    <Canvas Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <userControls:LightSaber x:Name="saber" BladeLenght="250"></userControls:LightSaber>
 
-        <Image Name="blade" Source="/Assets/GameImages/Saber.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="50"/>
+        <Image Name="blade" Source="/Assets/GameImages/Blade1to10.png" Canvas.Top="300" Canvas.Left="150" Height="250" Width="25"/>
+        <Image Name="hilt" Source="/Assets/GameImages/Hilt1to4.png" Canvas.Top="550" Canvas.Left="150" Height="100" Width="25"/>
 
         <Button Content="Extend" Click="Button_Click"></Button>
-    </Grid>
+    </Canvas>
 </Page>

@@ -102,6 +102,7 @@
     <Compile Include="Extensions\AnimationProperties.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Helpers\Converters\MathConvertor.cs" />
     <Compile Include="Helpers\GameHelpers\CollisionCircle.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -123,9 +124,8 @@
     <None Include="LightSaberGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\GameImages\hilt.png" />
-    <Content Include="Assets\GameImages\lightsaber_27.jpg" />
-    <Content Include="Assets\GameImages\Saber.png" />
+    <Content Include="Assets\GameImages\Blade1to10.png" />
+    <Content Include="Assets\GameImages\Hilt1to4.png" />
     <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

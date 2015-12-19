@@ -19,9 +19,23 @@ namespace LightSaberGame.Views
 {
     public sealed partial class LightSaber : UserControl
     {
+
+
+        public double BladeLenght
+        {
+            get { return (double)GetValue(BladeLenghtProperty); }
+            set { SetValue(BladeLenghtProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BladeLenght.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BladeLenghtProperty =
+            DependencyProperty.Register("BladeLenght", typeof(double), typeof(LightSaber), new PropertyMetadata(250));
+
+        
         public LightSaber()
         {
             this.InitializeComponent();
+            this.DataContext = this;
         }
     }
 }
