@@ -8,6 +8,8 @@
     using System.Threading.Tasks;
     using Windows.UI.Xaml.Data;
 
+
+    //https://rachel53461.wordpress.com/2011/08/20/the-math-converter/
     public class MathConverter : IValueConverter
     {
         private static readonly char[] _allOperators = new[] { '+', '-', '*', '/', '%', '(', ')' };

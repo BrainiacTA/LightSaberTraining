@@ -113,6 +113,9 @@
     <Compile Include="ViewModels\GameObjectsViewModels\LightSaberViewModel.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\ShotViewModel.cs" />
     <Compile Include="Views\CanvasListView.cs" />
+    <Compile Include="Views\EnemyShot.xaml.cs">
+      <DependentUpon>EnemyShot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LightSaber.xaml.cs">
       <DependentUpon>LightSaber.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\GameImages\Blade1to10.png" />
+    <Content Include="Assets\GameImages\EnemyShot.png" />
     <Content Include="Assets\GameImages\Hilt1to4.png" />
     <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -149,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\EnemyShot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LightSaber.xaml">
       <Generator>MSBuild:Compile</Generator>
