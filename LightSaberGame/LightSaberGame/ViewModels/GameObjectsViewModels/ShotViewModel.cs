@@ -6,11 +6,25 @@
     public class ShotViewModel : GameObjectViewModel
     {
         private double radius;
+        private double distance;
 
         public ShotViewModel(double left, double top, double radius)
             : base(left, top)
         {
             this.Diameter = radius;
+        }
+
+        public double Distance
+        {
+            get
+            {
+                return this.distance;
+            }
+            set
+            {
+                this.distance = value;
+                this.OnPropertyChanged("Distance");
+            }
         }
 
         public double Diameter

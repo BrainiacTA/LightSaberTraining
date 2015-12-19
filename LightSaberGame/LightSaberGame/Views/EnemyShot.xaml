@@ -8,6 +8,7 @@
     xmlns:converters ="using:LightSaberGame.Helpers.Converters"
     xmlns:properties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d"
+    Name="Control"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
@@ -15,14 +16,14 @@
         <converters:MathConverter x:Key="MathConverter"></converters:MathConverter>
     </UserControl.Resources>
     <Grid
-        Width="{Binding Diameter}"
-        Height="{Binding Diameter}"
+        Width="{Binding ElementName=Control, Path=Diameter}"
+        Height="{Binding ElementName=Control, Path=Diameter}"
         DoubleTapped="Grid_DoubleTapped">
 
         <Image
             Name="Shot"
-            Width="{Binding Diameter}"
-            Height="{Binding Diameter}"
+            Width="{Binding ElementName=Control, Path=Diameter}"
+            Height="{Binding ElementName=Control, Path=Diameter}"
             Source="/Assets/GameImages/EnemyShot.png" />
 
         <TextBlock Name="tbTimer" 
@@ -30,7 +31,6 @@
                    Foreground="Black" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center"/>
-        <!--properties:AnimationProperties.FadeOutTimer="{Binding Distance}"/>-->
 
     </Grid>
 </UserControl>

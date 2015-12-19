@@ -9,20 +9,55 @@
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d">
 
-    <Canvas Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!--<Canvas Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <userControls:LightSaber
             x:Name="saber"
-            Canvas.Left="{Binding Left}"
-            Canvas.Top="{Binding Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            Canvas.Left="{Binding LightSaber.Left}"
+            Canvas.Top="{Binding LightSaber.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            RenderTransformOrigin="0.5 1"
+            ManipulationDelta="saber_ManipulationDelta"
+            ManipulationStarted="saber_ManipulationStarted"
+            ManipulationCompleted="saber_ManipulationCompleted"
+            ManipulationMode="All"
+            ManipulationInertiaStarting="saber_ManipulationInertiaStarting">
+            <userControls:LightSaber.RenderTransform>
+                <RotateTransform Angle="{Binding LightSaber.Angle}"></RotateTransform>
+            </userControls:LightSaber.RenderTransform>
+            
+        </userControls:LightSaber>
 
-
+  
         <TextBlock Text="{Binding LightSaber.Left}" />
-        <!--<userControls:EnemyShot 
+        <userControls:EnemyShot 
             Diameter="50"
             Distance="10"
             Canvas.Left="150"
-            Canvas.Top="150" />-->
+            Canvas.Top="150" />
 
-        <!--<Button Content="Extend" Click="Button_Click"></Button>-->
-    </Canvas>
+        <Button Content="Extend" Click="Button_Click"></Button>
+    </Canvas>-->
+
+    <userControls:CanvasListView
+            ItemsSource="{Binding Shots}"
+            SelectionMode="None"
+            >
+        <userControls:CanvasListView.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas/>
+            </ItemsPanelTemplate>
+        </userControls:CanvasListView.ItemsPanel>
+        <userControls:CanvasListView.ItemTemplate>
+            <DataTemplate>
+                <userControls:EnemyShot
+                          Canvas.Top="{Binding Top}" 
+                          Canvas.Left="{Binding Left}"
+                          />
+            </DataTemplate>
+        </userControls:CanvasListView.ItemTemplate>
+
+
+
+
+    </userControls:CanvasListView>
+
 </Page>

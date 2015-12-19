@@ -16,7 +16,8 @@
     </UserControl.Resources>
     <Canvas Name="cnt"
             Height="{Binding ElementName=Control, Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE*1.4}"
-            Width="{Binding  ElementName=Control,  Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}">
+            Width="{Binding  ElementName=Control,  Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
+            >
         <Image 
                 Name="blade" 
                 Source="/Assets/GameImages/Blade1to10.png" 

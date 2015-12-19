@@ -53,5 +53,10 @@ namespace LightSaberGame.Views
             var oldValue = AnimationProperties.GetExtended(this.blade);
             AnimationProperties.SetExtended(this.blade, !oldValue);
         }
+
+        private void cnt_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+
+        }
     }
 }

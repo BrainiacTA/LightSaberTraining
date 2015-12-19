@@ -16,18 +16,18 @@
 
         // Using a DependencyProperty as the backing store for Distance.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DistanceProperty =
-            DependencyProperty.Register("Distance", typeof(double), typeof(EnemyShot), new PropertyMetadata(3));
+            DependencyProperty.Register("Distance", typeof(double), typeof(EnemyShot), new PropertyMetadata(3.0));
 
 
         public double Diameter
         {
-            get { return (double)GetValue(RadiusProperty); }
-            set { SetValue(RadiusProperty, value); }
+            get { return (double)GetValue(DiameterProperty); }
+            set { SetValue(DiameterProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Radius.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty RadiusProperty =
-            DependencyProperty.Register("Radius", typeof(double), typeof(EnemyShot), new PropertyMetadata(30));
+        public static readonly DependencyProperty DiameterProperty =
+            DependencyProperty.Register("Radius", typeof(double), typeof(EnemyShot), new PropertyMetadata(30.0));
 
 
         public EnemyShot()
@@ -37,10 +37,11 @@
             timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Tick += (snd, args) =>
             {
+               
+                this.Distance -= 1.0;
                 this.tbTimer.Text = this.Distance.ToString();
-                this.Distance -= 1;
-               // this.btnTimer.Content = this.Distance.ToString();
-                if (Distance == 0)
+                // this.btnTimer.Content = this.Distance.ToString();
+                if (Distance < 0)
                 {
                     this.Visibility = Visibility.Collapsed;
                     timer.Stop();
