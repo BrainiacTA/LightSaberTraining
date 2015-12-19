@@ -8,27 +8,30 @@
     xmlns:converters ="using:LightSaberGame.Helpers.Converters"
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d"
+    Name="Control"
     d:DesignHeight="300"
     d:DesignWidth="400">
     <UserControl.Resources>
         <converters:MathConverter x:Key="MathConverter"></converters:MathConverter>
     </UserControl.Resources>
     <Canvas Name="cnt"
-            Height="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE*1.4}"
-            Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}">
+            Height="{Binding ElementName=Control, Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE*1.4}"
+            Width="{Binding  ElementName=Control,  Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}">
         <Image 
                 Name="blade" 
                 Source="/Assets/GameImages/Blade1to10.png" 
-                Height="{Binding BladeLenght}"
-                Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
+                Height="{Binding ElementName=Control,  Path=BladeLenght}"
+                Width="{Binding ElementName=Control,  Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
                 attachedProperties:AnimationProperties.Extended="False"/>
 
         <Image 
             Name="hilt" 
             Source="/Assets/GameImages/Hilt1to4.png" 
-            Canvas.Top="{Binding BladeLenght}"
-            Height="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/2.5}" 
-            Width="{Binding BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
+            Canvas.Top="{Binding ElementName=Control,  Path=BladeLenght}"
+            Height="{Binding ElementName=Control,  Path=BladeLenght, 
+                Converter={StaticResource MathConverter},
+                ConverterParameter=@VALUE/2.5}" 
+            Width="{Binding ElementName=ControlBladeLenght, Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
             DoubleTapped="SwitchOn"/>
 
     </Canvas>

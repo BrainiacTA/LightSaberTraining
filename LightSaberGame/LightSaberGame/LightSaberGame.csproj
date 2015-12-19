@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\GameObjectsViewModels\GameObjectViewModel.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\LightSaberViewModel.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\ShotViewModel.cs" />
+    <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="Views\CanvasListView.cs" />
     <Compile Include="Views\EnemyShot.xaml.cs">
       <DependentUpon>EnemyShot.xaml</DependentUpon>

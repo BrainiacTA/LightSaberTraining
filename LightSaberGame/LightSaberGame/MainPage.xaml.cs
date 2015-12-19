@@ -29,7 +29,8 @@ namespace LightSaberGame
             this.InitializeComponent();
             this.DataContext = new GameViewModel();
 
-            var s = this.DataContext as GameViewModel;
+            var model = this.DataContext as GameViewModel;
+            this.saber.DataContext = model.LightSaber;
             //way to get child
             //var rect = VisualTreeHelper.GetChild( VisualTreeHelper.GetChild(this.saber, 0),1);
         }

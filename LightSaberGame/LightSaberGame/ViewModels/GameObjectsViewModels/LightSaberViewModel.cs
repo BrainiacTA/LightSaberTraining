@@ -16,6 +16,12 @@
             this.Length = length;
             this.Angle = angle;
         }
+        public LightSaberViewModel()
+            :base(0,0)
+        {
+            this.Length = 250;
+            this.Angle = 0;
+        }
 
         public double Length
         {

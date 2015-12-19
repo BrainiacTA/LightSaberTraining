@@ -1,4 +1,5 @@
 ﻿using LightSaberGame.Extensions;
+using LightSaberGame.ViewModels.GameObjectsViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,7 +46,7 @@ namespace LightSaberGame.Views
         public LightSaber()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            //this.DataContext = new LightSaberViewModel();
         }
         private void SwitchOn(object sender, DoubleTappedRoutedEventArgs e)
         {

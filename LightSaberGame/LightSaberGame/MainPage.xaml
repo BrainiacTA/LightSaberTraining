@@ -11,17 +11,18 @@
 
     <Canvas Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <userControls:LightSaber
-            x:Name="saber" 
-            BladeLenght="250"
-            Canvas.Left="250"
-            Canvas.Top="250" />
+            x:Name="saber"
+            Canvas.Left="{Binding Left}"
+            Canvas.Top="{Binding Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-        <userControls:EnemyShot 
+
+        <TextBlock Text="{Binding LightSaber.Left}" />
+        <!--<userControls:EnemyShot 
             Diameter="50"
             Distance="10"
             Canvas.Left="150"
-            Canvas.Top="150" />
+            Canvas.Top="150" />-->
 
-        <Button Content="Extend" Click="Button_Click"></Button>
+        <!--<Button Content="Extend" Click="Button_Click"></Button>-->
     </Canvas>
 </Page>
