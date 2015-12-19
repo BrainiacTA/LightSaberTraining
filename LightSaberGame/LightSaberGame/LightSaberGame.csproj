@@ -125,6 +125,8 @@
   <ItemGroup>
     <Content Include="Assets\GameImages\hilt.png" />
     <Content Include="Assets\GameImages\lightsaber_27.jpg" />
+    <Content Include="Assets\GameImages\Saber.png" />
+    <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

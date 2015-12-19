@@ -45,7 +45,7 @@
             //set static values
             var oldValue = (bool)e.OldValue;
             var newValue = (bool)e.NewValue;
-            var animationEffect = 0.01;
+            var animationEffect = 0.05;
 
             //determine starting point
             double staringPoint = 1;

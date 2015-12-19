@@ -12,8 +12,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!--<userControls:LightSaber x:Name="saber"></userControls:LightSaber>-->
 
-        <Rectangle Name="blade" Height="300" Width="50" Fill="Blue" HorizontalAlignment="Center" VerticalAlignment="Center"
-                   attachedProperties:AnimationProperties.ExtendCollapse="True"/>
+        <Image Name="blade" Source="/Assets/GameImages/Saber.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="50"/>
 
         <Button Content="Extend" Click="Button_Click"></Button>
     </Grid>
