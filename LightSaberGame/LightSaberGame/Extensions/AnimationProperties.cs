@@ -32,7 +32,7 @@
             //validation and casting
             var element = d as UIElement;
 
-            if (element==null)
+            if (element == null)
             {
                 return;
             }
@@ -49,13 +49,13 @@
 
             //determine starting point
             double staringPoint = 1;
-            if(oldValue)
+            if (oldValue)
             {
                 staringPoint = 0;
             }
 
             transform.ScaleY = staringPoint;
-            
+
             //Set up timer
             var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(5);
@@ -63,7 +63,7 @@
             //animation behavior
             timer.Tick += (snd, args) =>
             {
-                if(oldValue == newValue)
+                if (oldValue == newValue)
                 {
                     return;
                 }
@@ -78,7 +78,7 @@
                 }
 
                 //end condition
-                if(transform.ScaleY<=0|| transform.ScaleY>=1)
+                if (transform.ScaleY <= 0 || transform.ScaleY >= 1)
                 {
                     timer.Stop();
                     return;
@@ -86,5 +86,41 @@
             };
             timer.Start();
         }
+
+
+
+        public static double GetFadeOutTimer(DependencyObject obj)
+        {
+            return (double)obj.GetValue(FadeOutTimerProperty);
+        }
+
+        public static void SetFadeOutTimer(DependencyObject obj, double value)
+        {
+            obj.SetValue(FadeOutTimerProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for FadeOutTimer.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FadeOutTimerProperty =
+            DependencyProperty.RegisterAttached("FadeOutTimer", typeof(double), typeof(UIElement), new PropertyMetadata(3, FadeOutTimerCallback));
+
+        private static void FadeOutTimerCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var element = d as UIElement;
+            var timerSpet = 50;
+            var timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(timerSpet);
+
+            var timePassed = 0;
+            var fadeStep = (double)e.OldValue * 1000 / timerSpet;
+            timer.Tick += (snd, args) =>
+            {
+                element.Opacity -= fadeStep;
+                if (element.Opacity <= 0)
+                {
+                    timer.Stop();
+                }
+            };
+            timer.Start();
+        }   
     }
 }

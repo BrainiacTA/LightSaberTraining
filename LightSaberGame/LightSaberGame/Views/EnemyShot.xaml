@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converters ="using:LightSaberGame.Helpers.Converters"
+    xmlns:properties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -15,7 +16,8 @@
     </UserControl.Resources>
     <Grid
         Width="{Binding Diameter}"
-        Height="{Binding Diameter}">
+        Height="{Binding Diameter}"
+        DoubleTapped="Grid_DoubleTapped">
 
         <Image
             Name="Shot"
@@ -28,6 +30,7 @@
                    Foreground="Black" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center"/>
+        <!--properties:AnimationProperties.FadeOutTimer="{Binding Distance}"/>-->
 
     </Grid>
 </UserControl>
