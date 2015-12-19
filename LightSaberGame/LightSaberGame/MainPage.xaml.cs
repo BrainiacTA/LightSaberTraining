@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LightSaberGame.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,13 @@ namespace LightSaberGame
         {
             this.InitializeComponent();
             //way to get child
-            var rect = VisualTreeHelper.GetChild( VisualTreeHelper.GetChild(this.saber, 0),1);
+            //var rect = VisualTreeHelper.GetChild( VisualTreeHelper.GetChild(this.saber, 0),1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var oldValue = AnimationProperties.GetExtended(this.blade);
+            AnimationProperties.SetExtended(this.blade, !oldValue);
         }
     }
 }
