@@ -32,8 +32,6 @@ namespace LightSaberGame
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var oldValue = AnimationProperties.GetExtended(this.blade);
-            AnimationProperties.SetExtended(this.blade, !oldValue);
         }
     }
 }

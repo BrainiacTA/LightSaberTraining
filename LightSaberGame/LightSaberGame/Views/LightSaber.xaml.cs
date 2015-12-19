@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LightSaberGame.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,6 +20,15 @@ namespace LightSaberGame.Views
 {
     public sealed partial class LightSaber : UserControl
     {
+        //public bool SwitchedOn
+        //{
+        //    get { return (bool)GetValue(SwitchedOnProperty); }
+        //    set { SetValue(SwitchedOnProperty, value); }
+        //}
+
+        //// Using a DependencyProperty as the backing store for SwitchedOn.  This enables animation, styling, binding, etc...
+        //public static readonly DependencyProperty SwitchedOnProperty =
+        //    DependencyProperty.Register("SwitchedOn", typeof(bool), typeof(LightSaber), new PropertyMetadata(true));
 
 
         public double BladeLenght
@@ -36,6 +46,11 @@ namespace LightSaberGame.Views
         {
             this.InitializeComponent();
             this.DataContext = this;
+        }
+        private void SwitchOn(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            var oldValue = AnimationProperties.GetExtended(this.blade);
+            AnimationProperties.SetExtended(this.blade, !oldValue);
         }
     }
 }
