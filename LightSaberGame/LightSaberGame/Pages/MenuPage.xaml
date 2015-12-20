@@ -36,7 +36,8 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="3"
-            Text="LightSaber Trainer"/>
+            Text="LightSaber Trainer"
+            FontWeight="ExtraBold"/>
         
         <Button Grid.Row="1"
                 Grid.Column="1"
@@ -75,8 +76,10 @@
                 <TextBlock Text="Exit" Style="{StaticResource ButtonTextStyle}"/>
             </Button.Content>
         </Button>
-
-
+        <Image Grid.Column="0"
+               Grid.ColumnSpan="3"
+               Grid.Row="5"
+               Source="{StaticResource Symbol}"/>
     </Grid>
 
 
