@@ -17,9 +17,9 @@
     using System.Threading.Tasks;
     using Windows.UI.Xaml.Media;
     using Windows.UI;
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    using Windows.UI.Xaml.Media.Imaging;    /// <summary>
+                                            /// An empty page that can be used on its own or navigated to within a Frame.
+                                            /// </summary>
     public sealed partial class Game : Page
     {
         private Accelerometer accelerometer;
@@ -29,6 +29,7 @@
         private readonly Random rng;
         private bool hasBackgorund = false;
         private bool hasDirection = false;
+        private string background = "/Assets/GameImages/";
 
         public Game()
         {
@@ -46,19 +47,43 @@
 
             this.rng = new Random();
 
-            var viewModel = this.DataContext as GameViewModel;
-
             this.AccelerometerSetUp();
-            this.Spawing(viewModel);
-            this.Physics(viewModel);
+            this.Spawing();
+            this.Physics();
         }
 
-        private void Direction(Compass sender, CompassReadingChangedEventArgs args)
+        public GameViewModel ViewModel
         {
-            if (this.hasDirection)
+            get
+            {
+                return this.DataContext as GameViewModel;
+            }
+        }
+
+        private async void Direction(Compass sender, CompassReadingChangedEventArgs args)
+        {
+            if (this.hasDirection || !this.hasBackgorund)
             {
                 return;
             }
+
+            var direction = args.Reading.HeadingTrueNorth;
+
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                if (direction<180)
+                {
+                    this.background += ".jpg";
+                }
+                else
+                {
+                    this.background += "2.jpg";
+                }
+
+                this.ViewModel.Background = this.background;
+            });
+            this.hasDirection = true;
+
         }
 
         private async void Location(Geolocator sender, PositionChangedEventArgs args)
@@ -74,11 +99,11 @@
             {
                 if ((int)longitude % 2 == 0)
                 {
-                    this.cnv1.Background = new SolidColorBrush(Colors.Blue);
+                    this.background += "arean";
                 }
                 else
                 {
-                    this.cnv1.Background = new SolidColorBrush(Colors.Red);
+                    this.background += "city";
                 }
             });
            
@@ -93,17 +118,17 @@
             this.accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
         }
 
-        private void Physics(GameViewModel viewModel)
+        private void Physics()
         {
             var physicsTimer = new DispatcherTimer();
             physicsTimer.Interval = TimeSpan.FromMilliseconds(100);
             physicsTimer.Tick += (snd, arg) =>
             {
-                var shotsToCheck = viewModel.Shots
+                var shotsToCheck = this.ViewModel.Shots
                 .Where(z => z.Distance >= 0 && z.Distance <= 1)
                 .ToList();
 
-                viewModel.Health = 100 - viewModel.Shots.Count(z => z.Distance < 0) * 10;
+                this.ViewModel.Health = 100 - this.ViewModel.Shots.Count(z => z.Distance < 0) * 10;
                 if (shotsToCheck.Count == 0)
                 {
                     return;
@@ -117,7 +142,7 @@
                 var toDelete = new List<ShotViewModel>();
                 foreach (var item in shotsToCheck)
                 {
-                    if (GameObjectViewModel.ObjectsCollided(viewModel.LightSaber, item))
+                    if (GameObjectViewModel.ObjectsCollided(this.ViewModel.LightSaber, item))
                     {
                         toDelete.Add(item);
                     }
@@ -126,17 +151,17 @@
                 if (toDelete.Count > 0)
                 {
                     this.HitSound.Play();
-                    viewModel.Score += 10 * scoreMultyplier;
+                    this.ViewModel.Score += 10 * scoreMultyplier;
                 }
-                toDelete.ForEach(viewModel.RemoveShot);
+                toDelete.ForEach(this.ViewModel.RemoveShot);
 
-                //viewModel.Health = 100 -viewModel.Shots.Count(z => z.Distance < 0)*10;
+                this.ViewModel.Health = 100 - this.ViewModel.Shots.Count(z => z.Distance < 0)*10;
                 scoreMultyplier += 0.2;
             };
             physicsTimer.Start();
         }
 
-        private void Spawing(GameViewModel viewModel)
+        private void Spawing()
         {
             var spawnTimer = new DispatcherTimer();
             var spawnInterval = 2000;
@@ -146,7 +171,7 @@
                 var x = 100 + this.rng.NextDouble() * 200;
                 var y = 100 + this.rng.NextDouble() * 200;
                 var r = 30;
-                viewModel.AddShot(x, y, r);
+                this.ViewModel.AddShot(x, y, r);
                 if (spawnInterval > 750)
                 {
                     spawnInterval -= 100;
@@ -226,7 +251,8 @@
 
             var shotTargeted = viewModel.Shots
                 .Where(z => Math.Abs(z.Left - location.X) <= range &&
-                             Math.Abs(z.Top - location.Y) <= range)
+                             Math.Abs(z.Top - location.Y) <= range
+                             && z.Distance>0)
                 .ToList();
 
             var shotss = shotTargeted;

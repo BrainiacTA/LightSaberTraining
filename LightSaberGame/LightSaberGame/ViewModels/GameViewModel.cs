@@ -16,6 +16,7 @@ namespace LightSaberGame.ViewModels
         private double score;
         private ObservableCollection<ShotViewModel> shots;
         private double health;
+        private string background;
 
         public GameViewModel()
         {
@@ -58,6 +59,19 @@ namespace LightSaberGame.ViewModels
             {
                 this.health = value;
                 this.OnPropertyChanged("Health");
+            }
+        }
+
+        public string Background
+        {
+            get
+            {
+                return this.background;
+            }
+            set
+            {
+                this.background = value;
+                this.OnPropertyChanged("Background");
             }
         }
 

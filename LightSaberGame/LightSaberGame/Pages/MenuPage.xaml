@@ -5,68 +5,77 @@
     xmlns:local="using:LightSaberGame.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControl ="using:LightSaberGame.Views"
     mc:Ignorable="d">
-    <Page.Resources >
-        <LinearGradientBrush x:Key="BlackToBlue"
-                             StartPoint="0,0"
-                             EndPoint="0,1" >
-            <GradientStop Color="#6d85ae" Offset="0.85"/>
-            <GradientStop Color="#92b2e9" Offset="0.5"/>
-            <GradientStop Color="#6d85ae" Offset="0.15"/>
-        </LinearGradientBrush>
 
-        <Style TargetType="Button"
-               x:Key="ButtonStyle">
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="FontSize" Value="26" />
-            <Setter Property="Foreground" Value="#E3CB19" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Background" Value="{StaticResource BlackToBlue}" />
-        </Style>
-    </Page.Resources>
-    <Grid>
-        <Grid.Background>
+    <Grid Background="Black">
+        <!--<Grid.Background>
             <ImageBrush Stretch="Fill"
                         ImageSource="http://www.topdesignmag.com/wp-content/uploads/2011/01/Darth-Vader1.jpg" />
-        </Grid.Background>
+        </Grid.Background>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*" />
-            <RowDefinition Height="1*"  MinHeight="50" />
-            <RowDefinition Height="0.7*" />
-            <RowDefinition Height="1*"  MinHeight="50" />
-            <RowDefinition Height="0.7*" />
-            <RowDefinition Height="1*"  MinHeight="50" />
-            <RowDefinition Height="0.7*" />
-            <RowDefinition Height="1*"  MinHeight="50" />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="2.5*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="0.5*" />
         </Grid.ColumnDefinitions>
-        <Button Content="Play"
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Click="OnPlayButtonClick"/>
 
-        <Button Content="HighScores"
-                Grid.Row="3"
+        <userControl:TiltedTextBlockControl 
+            FontSize="40"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Foreground="Yellow"
+            Angle="-45"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Text="LightSaber Trainer"/>
+        
+        <Button Grid.Row="1"
                 Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Click="OnHighScoresButtonClick"/>
+                Style="{StaticResource MenuButtonStyle}"
+                Click="OnPlayButtonClick">
+            <Button.Content>
+                <TextBlock Text="Play" Style="{StaticResource ButtonTextStyle}"/>
+            </Button.Content>
+        </Button>
 
-        <Button Content="Rules"
-                Grid.Row="5"
+        <Button Grid.Row="2"
                 Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"/>
+                Style="{StaticResource MenuButtonStyle}"
+                Click="OnPlayButtonClick">
+            <Button.Content>
+                <TextBlock Text="Rules" Style="{StaticResource ButtonTextStyle}"/>
+            </Button.Content>
+        </Button>
 
-        <Button Content="Quit"
-                Grid.Row="7"
+
+        <Button Grid.Row="3"
                 Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"/>
+                Style="{StaticResource MenuButtonStyle}"
+                Click="OnPlayButtonClick">
+            <Button.Content>
+                <TextBlock Text="HighScores" Style="{StaticResource ButtonTextStyle}"/>
+            </Button.Content>
+        </Button>
+
+
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Style="{StaticResource MenuButtonStyle}"
+                Click="OnPlayButtonClick">
+            <Button.Content>
+                <TextBlock Text="Exit" Style="{StaticResource ButtonTextStyle}"/>
+            </Button.Content>
+        </Button>
+
 
     </Grid>
 

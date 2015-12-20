@@ -65,10 +65,5 @@ namespace LightSaberGame.Views
             this.SwitchedOn = !this.SwitchedOn;
 
         }
-
-        private void cnt_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -150,7 +150,11 @@
     <None Include="LightSaberGame_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\GameImages\arean.jpg" />
+    <Content Include="Assets\GameImages\arean2.jpg" />
     <Content Include="Assets\GameImages\Blade1to10.png" />
+    <Content Include="Assets\GameImages\city.jpg" />
+    <Content Include="Assets\GameImages\city2.jpg" />
     <Content Include="Assets\GameImages\EnemyShot.png" />
     <Content Include="Assets\GameImages\Hilt1to4.png" />
     <Content Include="Assets\GameSounds\coolsaber.wav" />

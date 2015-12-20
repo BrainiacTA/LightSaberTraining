@@ -26,9 +26,11 @@
         <userControls:CanvasListView
             ItemsSource="{Binding Shots}"
             x:Name="cnv1"
-            Background="Transparent"
             Grid.Row="1"
             >
+            <userControls:CanvasListView.Background>
+                <ImageBrush Stretch="Fill" ImageSource="{Binding Background}"/>
+            </userControls:CanvasListView.Background>
             <userControls:CanvasListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas/>
