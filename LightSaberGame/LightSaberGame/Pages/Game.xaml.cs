@@ -1,27 +1,26 @@
-﻿using LightSaberGame.ViewModels;
-using LightSaberGame.ViewModels.GameObjectsViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Windows.Devices.Sensors;
-using Windows.Foundation;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
-namespace LightSaberGame
+﻿namespace LightSaberGame.Pages
 {
+    using LightSaberGame.ViewModels;
+    using LightSaberGame.ViewModels.GameObjectsViewModels;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Windows.Devices.Sensors;
+    using Windows.Foundation;
+    using Windows.UI.Core;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Input;
+
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Game : Page
     {
         private Accelerometer accelerometer;
 
-        public MainPage()
+        public Game()
         {
             this.InitializeComponent();
             this.DataContext = new GameViewModel();
@@ -51,7 +50,7 @@ namespace LightSaberGame
                 var shotsToCheck = viewModel.Shots
                 .Where(z => z.Distance >= 0 && z.Distance <= 1)
                 .ToList();
-                if(shotsToCheck.Count == 0)
+                if (shotsToCheck.Count == 0)
                 {
                     return;
                 }
@@ -107,7 +106,7 @@ namespace LightSaberGame
             var y = delta.Translation.Y;
 
             var viewModeld = this.DataContext as GameViewModel;
-            if(viewModeld.LightSaber.Left + x <0)
+            if (viewModeld.LightSaber.Left + x < 0)
             { return; }
             viewModeld.LightSaber.Top += y;
             viewModeld.LightSaber.Left += x;

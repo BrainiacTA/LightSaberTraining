@@ -8,10 +8,11 @@
         private double radius;
         private double distance;
 
-        public ShotViewModel(double left, double top, double radius)
+        public ShotViewModel(double left, double top, double radius, double distance)
             : base(left, top)
         {
             this.Diameter = radius;
+            this.Distance = distance;
         }
 
         public double Distance

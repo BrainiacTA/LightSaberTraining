@@ -9,6 +9,29 @@
         private double top;
         private double left;
 
+        public static bool ObjectsCollided(GameObjectViewModel obj1, GameObjectViewModel obj2)
+        {
+            var collided = false;
+
+            foreach (var point1 in obj1.GetCollisionInfo())
+            {
+                foreach (var point2 in obj2.GetCollisionInfo())
+                {
+                    if(CollisionCircle.CirclesCollide(point1,point2))
+                    {
+                        collided = true;
+                        break;
+                    }
+                }
+
+                if(collided)
+                {
+                    break;
+                }
+            }
+
+            return collided;
+        }
         public GameObjectViewModel(double left, double top)
         {
             this.Top = top;

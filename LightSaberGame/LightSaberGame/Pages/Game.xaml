@@ -1,45 +1,15 @@
 ﻿<Page
-    x:Class="LightSaberGame.MainPage"
+    x:Class="LightSaberGame.Pages.Game"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:LightSaberGame"
+    xmlns:local="using:LightSaberGame.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:userControls ="using:LightSaberGame.Views"
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d">
 
-    <!--<Canvas Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        -->
-    <!--<userControls:LightSaber
-            x:Name="saber"
-            Canvas.Left="{Binding LightSaber.Left}"
-            Canvas.Top="{Binding LightSaber.Top, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-            RenderTransformOrigin="0.5 1"
-            ManipulationDelta="saber_ManipulationDelta"
-            ManipulationStarted="saber_ManipulationStarted"
-            ManipulationCompleted="saber_ManipulationCompleted"
-            ManipulationMode="All"
-            ManipulationInertiaStarting="saber_ManipulationInertiaStarting">
-            <userControls:LightSaber.RenderTransform>
-                <RotateTransform Angle="{Binding LightSaber.Angle}"></RotateTransform>
-            </userControls:LightSaber.RenderTransform>
-            
-        </userControls:LightSaber>-->
-
-
-
-    <!--<TextBlock Text="{Binding LightSaber.Left}" />
-        <userControls:EnemyShot 
-            Diameter="50"
-            Distance="10"
-            Canvas.Left="150"
-            Canvas.Top="150" />
-
-        <Button Content="Extend" Click="Button_Click"></Button>-->
-    <!--
-    </Canvas>-->
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <userControls:CanvasListView
             ItemsSource="{Binding Shots}"
             SelectionMode="None"
@@ -80,5 +50,4 @@
 
         </Canvas>
     </Grid>
-
 </Page>

@@ -55,8 +55,13 @@ namespace LightSaberGame.ViewModels
 
         public void AddShot (double x, double y, double r)
         {
-            var shot = new ShotViewModel(x, y, r);
+            var shot = new ShotViewModel(x, y, r,3);
             this.shots.Add(shot);
+        }
+
+        public void RemoveShot( ShotViewModel shot)
+        {
+            this.shots.Remove(shot);
         }
     }
 }
