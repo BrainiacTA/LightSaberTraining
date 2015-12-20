@@ -107,10 +107,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Include="Pages\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
-=======
+    </Compile>
+
     <Compile Include="Pages\ChooseHeroPage.xaml.cs">
       <DependentUpon>ChooseHeroPage.xaml</DependentUpon>
     </Compile>
@@ -119,7 +120,6 @@
     </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
->>>>>>> db6f57131f00178425ceb0563718b93c590fbbfa
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModels\BaseViewModel.cs" />
@@ -164,9 +164,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-<<<<<<< HEAD
-    <Page Include="Pages\Game.xaml">
-=======
+
+    <Page Include="Pages\Game.xaml"/>
+
     <Page Include="Pages\ChooseHeroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,7 +176,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MenuPage.xaml">
->>>>>>> db6f57131f00178425ceb0563718b93c590fbbfa
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
