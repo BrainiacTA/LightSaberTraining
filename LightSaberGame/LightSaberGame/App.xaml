@@ -7,11 +7,7 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <converters:MathConverter x:Key="MathConverter"></converters:MathConverter>
     </Application.Resources>
 
 </Application>

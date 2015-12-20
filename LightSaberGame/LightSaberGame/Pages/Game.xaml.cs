@@ -1,5 +1,6 @@
 ﻿namespace LightSaberGame.Pages
 {
+    using Extensions;
     using LightSaberGame.ViewModels;
     using LightSaberGame.ViewModels.GameObjectsViewModels;
     using System;
@@ -55,7 +56,7 @@
                     return;
                 }
 
-                if(!saber.SwitchedOn)
+                if (!saber.SwitchedOn)
                 {
                     return;
                 }
@@ -102,7 +103,7 @@
             viewModeld.LightSaber.Angle += 30;
         }
 
-        private void saber_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        private void SaberMove(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var delta = e.Delta;
 
@@ -125,9 +126,29 @@
 
         }
 
-        private void saber_ManipulationInertiaStarting(object sender, ManipulationInertiaStartingRoutedEventArgs e)
+        private void SaberStopInertia(object sender, ManipulationInertiaStartingRoutedEventArgs e)
         {
             e.TranslationBehavior.DesiredDeceleration = 100;
+        }
+
+        private void ForcePushOnDoubleTap(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            var location = e.GetPosition(sender as UIElement);
+
+            var viewModel = this.DataContext as GameViewModel;
+            var shots = viewModel.Shots;
+
+            var range = 50;
+
+            var shotTargeted = viewModel.Shots
+                .Where(z => Math.Abs(z.Left - location.X) <= range &&
+                             Math.Abs(z.Top - location.Y) <= range)
+                .ToList();
+
+            var shotss = shotTargeted;
+
+            shotTargeted.ForEach(viewModel.RemoveShot);
+
         }
     }
 }
