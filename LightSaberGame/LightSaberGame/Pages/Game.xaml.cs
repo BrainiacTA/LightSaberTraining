@@ -1,41 +1,78 @@
 ﻿namespace LightSaberGame.Pages
 {
     using Extensions;
+    using Helpers.GameHelpers;
     using LightSaberGame.ViewModels;
     using LightSaberGame.ViewModels.GameObjectsViewModels;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Windows.Devices.Geolocation;
     using Windows.Devices.Sensors;
     using Windows.Foundation;
     using Windows.UI.Core;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Input;
-
-
+    using System.Threading.Tasks;
+    using Windows.UI.Xaml.Media;
+    using Windows.UI;
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Game : Page
     {
         private Accelerometer accelerometer;
+        private Geolocator geoLocator;
         private double scoreMultyplier = 1;
         private readonly Random rng;
+        private bool hasBackgorund = false;
 
         public Game()
         {
             this.InitializeComponent();
             this.DataContext = new GameViewModel();
+
+            //get city
+
+            this.geoLocator = new Geolocator();
+            this.geoLocator.PositionChanged += Location;
+            //var s = this.Location().Result;
+
             this.rng = new Random();
+
             var viewModel = this.DataContext as GameViewModel;
 
-            this.AccelerometerSetUp();          
-
+            this.AccelerometerSetUp();
             this.Spawing(viewModel);
-
             this.Physics(viewModel);
         }
+
+        private async void Location(Geolocator sender, PositionChangedEventArgs args)
+        {
+            if(this.hasBackgorund)
+            {
+                return;
+            }
+
+            var longitude = args.Position.Coordinate.Longitude;
+
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                if ((int)longitude % 2 == 0)
+                {
+                    this.Health.Text = "Blue";
+                    this.cnv1.Background = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    this.cnv1.Background = new SolidColorBrush(Colors.Red);
+                }
+            });
+           
+            this.hasBackgorund = true;
+        }
+
 
         private void AccelerometerSetUp()
         {

@@ -9,7 +9,7 @@
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
@@ -25,6 +25,7 @@
         <!--EnemyShots-->
         <userControls:CanvasListView
             ItemsSource="{Binding Shots}"
+            x:Name="cnv1"
             Background="Transparent"
             Grid.Row="1"
             >
