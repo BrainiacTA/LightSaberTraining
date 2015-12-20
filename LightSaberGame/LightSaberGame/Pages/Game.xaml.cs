@@ -31,7 +31,8 @@
             this.accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
 
             var spawnTimer = new DispatcherTimer();
-            spawnTimer.Interval = TimeSpan.FromMilliseconds(2000);
+            var spawnInterval = 2000;
+            spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
             var viewModel = this.DataContext as GameViewModel;
             var rng = new Random();
             double x, y;
@@ -41,6 +42,11 @@
                 x = 100 + rng.NextDouble() * 200;
                 y = 100 + rng.NextDouble() * 200;
                 viewModel.AddShot(x, y, r);
+                if(spawnInterval > 750)
+                {
+                    spawnInterval -= 100;
+                    spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
+                }
             };
             spawnTimer.Start();
 
@@ -74,6 +80,7 @@
                 if(toDelete.Count>0)
                 {
                     this.HitSound.Play();
+                    viewModel.Score += 10;
                 }
                 toDelete.ForEach(viewModel.RemoveShot);
                

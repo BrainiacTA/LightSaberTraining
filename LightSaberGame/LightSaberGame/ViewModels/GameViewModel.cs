@@ -20,6 +20,7 @@ namespace LightSaberGame.ViewModels
         public GameViewModel()
         {
             this.LightSaber = new LightSaberViewModel(100,300,250,30);
+            this.Health = 100;
         }
         public LightSaberViewModel LightSaber
         {
