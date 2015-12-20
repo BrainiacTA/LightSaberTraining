@@ -97,6 +97,7 @@
                 if (Math.Abs(newAngel - viewModel.LightSaber.Angle) >= 10)
                 {
                     viewModel.LightSaber.Angle = newAngel;
+                    this.MoveSound.Play();
                 }
 
             });
@@ -120,15 +121,16 @@
             { return; }
             viewModeld.LightSaber.Top += y;
             viewModeld.LightSaber.Left += x;
+            
         }
 
         private void saber_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
+            this.MoveSound.Play();
         }
 
         private void saber_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-
         }
 
         private void SaberStopInertia(object sender, ManipulationInertiaStartingRoutedEventArgs e)

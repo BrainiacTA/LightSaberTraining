@@ -68,6 +68,12 @@
             AutoPlay="False"
             Volume="50"
             Source="/Assets/GameSounds/lasrhit3.WAV"/>
+
+            <MediaElement Name="MoveSound"
+                    IsLooping="false"
+                    AutoPlay="False"
+                    Volume="50"
+                    Source="/Assets/GameSounds/sthswng2.WAV"/>
         </Canvas>
         <!--Player Portrait-->
         <Image Grid.Row="2"/>
