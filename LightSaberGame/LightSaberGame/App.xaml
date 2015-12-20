@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LightSaberGame"
-    xmlns:gameR ="using:LightSaberGame.Resources"
     xmlns:converters ="using:LightSaberGame.Helpers.Converters"
     RequestedTheme="Light">
 

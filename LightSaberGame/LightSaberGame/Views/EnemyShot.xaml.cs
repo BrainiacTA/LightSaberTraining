@@ -52,7 +52,7 @@
 
         private void Grid_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            this.Distance = 0;
         }
     }
 }

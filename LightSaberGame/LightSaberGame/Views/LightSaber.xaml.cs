@@ -21,16 +21,15 @@ namespace LightSaberGame.Views
 {
     public sealed partial class LightSaber : UserControl
     {
-        //public bool SwitchedOn
-        //{
-        //    get { return (bool)GetValue(SwitchedOnProperty); }
-        //    set { SetValue(SwitchedOnProperty, value); }
-        //}
+        public bool SwitchedOn
+        {
+            get { return (bool)GetValue(SwitchedOnProperty); }
+            set { SetValue(SwitchedOnProperty, value); }
+        }
 
-        //// Using a DependencyProperty as the backing store for SwitchedOn.  This enables animation, styling, binding, etc...
-        //public static readonly DependencyProperty SwitchedOnProperty =
-        //    DependencyProperty.Register("SwitchedOn", typeof(bool), typeof(LightSaber), new PropertyMetadata(true));
-
+        // Using a DependencyProperty as the backing store for SwitchedOn.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SwitchedOnProperty =
+            DependencyProperty.Register("SwitchedOn", typeof(bool), typeof(LightSaber), new PropertyMetadata(true));
 
         public double BladeLenght
         {
@@ -52,6 +51,7 @@ namespace LightSaberGame.Views
         {
             var oldValue = AnimationProperties.GetExtended(this.blade);
             AnimationProperties.SetExtended(this.blade, !oldValue);
+            this.SwitchedOn = !this.SwitchedOn;
         }
 
         private void cnt_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)

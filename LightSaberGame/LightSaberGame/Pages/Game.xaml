@@ -10,10 +10,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+       
+        <!--Enemy Portrait-->
+        <Image Grid.Row="0" Height="50" />
+        
+        <!--EnemyShots-->
         <userControls:CanvasListView
             ItemsSource="{Binding Shots}"
-            SelectionMode="None"
             Background="Transparent"
+            Grid.Row="1"
             >
             <userControls:CanvasListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -30,7 +41,10 @@
                 </DataTemplate>
             </userControls:CanvasListView.ItemTemplate>
         </userControls:CanvasListView>
-        <Canvas Background="Transparent">
+
+        <!--LightSaber-->
+        <Canvas Background="Transparent"
+                        Grid.Row="1">
             <userControls:LightSaber
             x:Name="saber"
             Canvas.Left="{Binding LightSaber.Left}"
@@ -40,14 +54,22 @@
             ManipulationStarted="saber_ManipulationStarted"
             ManipulationCompleted="saber_ManipulationCompleted"
             ManipulationMode="All"
-            ManipulationInertiaStarting="saber_ManipulationInertiaStarting">
+            ManipulationInertiaStarting="saber_ManipulationInertiaStarting"
+   >
                 <userControls:LightSaber.RenderTransform>
                     <RotateTransform Angle="{Binding LightSaber.Angle}"></RotateTransform>
                 </userControls:LightSaber.RenderTransform>
 
             </userControls:LightSaber>
-
-
         </Canvas>
+        <!--Player Portrait-->
+        <Image Grid.Row="2"/>
+        <!--Game Score and Health-->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Score: "/>
+            <TextBlock Name="Score" Text="{Binding Score}" Width="100"/>
+            <TextBlock Text="Health: "/>
+            <TextBlock Name="Health" Text="{Binding Health}"/>
+        </StackPanel>
     </Grid>
 </Page>

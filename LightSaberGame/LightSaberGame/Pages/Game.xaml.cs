@@ -55,6 +55,10 @@
                     return;
                 }
 
+                if(!saber.SwitchedOn)
+                {
+                    return;
+                }
                 var bladePoints = viewModel.LightSaber.GetCollisionInfo();
                 var toDelete = new List<ShotViewModel>();
                 foreach (var item in shotsToCheck)

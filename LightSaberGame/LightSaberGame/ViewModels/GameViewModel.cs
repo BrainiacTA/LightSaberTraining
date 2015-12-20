@@ -13,7 +13,10 @@ namespace LightSaberGame.ViewModels
     public class GameViewModel : BaseViewModel
     {
         private LightSaberViewModel ligthSaber;
+        private double score;
         private ObservableCollection<ShotViewModel> shots;
+        private double health;
+
         public GameViewModel()
         {
             this.LightSaber = new LightSaberViewModel(100,300,250,30);
@@ -28,6 +31,32 @@ namespace LightSaberGame.ViewModels
             {
                 this.ligthSaber = value;
                 this.OnPropertyChanged("LightSaber");
+            }
+        }
+
+        public double Score
+        {
+            get
+            {
+                return this.score;
+            }
+            set
+            {
+                this.score = value;
+                this.OnPropertyChanged("Score");
+            }
+        }
+
+        public double Health
+        {
+            get
+            {
+                return this.health;
+            }
+            set
+            {
+                this.health = value;
+                this.OnPropertyChanged("Health");
             }
         }
 
@@ -53,6 +82,7 @@ namespace LightSaberGame.ViewModels
             }
         }
 
+
         public void AddShot (double x, double y, double r)
         {
             var shot = new ShotViewModel(x, y, r,3);
@@ -63,5 +93,7 @@ namespace LightSaberGame.ViewModels
         {
             this.shots.Remove(shot);
         }
+
+
     }
 }
