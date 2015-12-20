@@ -99,6 +99,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Command\DelegateComand.cs" />
+    <Compile Include="Data\HttpServerData.cs" />
+    <Compile Include="Data\IData.cs" />
     <Compile Include="Extensions\AnimationProperties.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helpers\Converters\BoolToVisibilityConverter.cs" />
@@ -107,6 +109,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\HeroGetResponse.cs" />
+    <Compile Include="Model\HeroModel.cs" />
     <Compile Include="Pages\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
