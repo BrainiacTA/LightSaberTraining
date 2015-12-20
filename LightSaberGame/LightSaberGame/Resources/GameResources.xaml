@@ -12,6 +12,7 @@
     </Style>
     
     <BitmapImage UriSource="/Assets/GameImages/Symbol.png" x:Key="Symbol"/>
+    <ImageBrush ImageSource="/Assets/GameImages/space.jpg" x:Key="SpaceBackground"/>
     <ImageBrush ImageSource="/Assets/GameImages/buttonBackground.png" x:Key="buttonBackground"/>
     
     <Style TargetType="Button" x:Key="MenuButtonStyle">

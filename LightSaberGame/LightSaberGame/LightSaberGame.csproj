@@ -158,6 +158,7 @@
     <Content Include="Assets\GameImages\city2.jpg" />
     <Content Include="Assets\GameImages\EnemyShot.png" />
     <Content Include="Assets\GameImages\Hilt1to4.png" />
+    <Content Include="Assets\GameImages\space.jpg" />
     <Content Include="Assets\GameImages\Symbol.png" />
     <Content Include="Assets\GameSounds\coolsaber.wav" />
     <Content Include="Assets\GameSounds\fx5.wav" />
