@@ -1,14 +1,11 @@
-﻿using LightSaberGame.Data;
-using LightSaberGame.ViewModels.GameObjectsViewModels;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LightSaberGame.ViewModels.BaseViewModels
+﻿namespace LightSaberGame.ViewModels
 {
+    using LightSaberGame.Data;
+    using LightSaberGame.Extensions;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+
     public class HighScoresPageViewModes
     {
         private ObservableCollection<HeroViewModel> heroes;
@@ -32,10 +29,7 @@ namespace LightSaberGame.ViewModels.BaseViewModels
                 }
                 this.heroes.Clear();
 
-                foreach (var item in value)
-                {
-                    this.heroes.Add(item);
-                }
+                value.ForEach(heroes.Add);
             }
 
         }

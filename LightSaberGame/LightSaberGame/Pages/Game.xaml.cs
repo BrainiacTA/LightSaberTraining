@@ -24,9 +24,11 @@
     {
         private Accelerometer accelerometer;
         private Geolocator geoLocator;
+        private Compass compass;
         private double scoreMultyplier = 1;
         private readonly Random rng;
         private bool hasBackgorund = false;
+        private bool hasDirection = false;
 
         public Game()
         {
@@ -37,6 +39,9 @@
 
             this.geoLocator = new Geolocator();
             this.geoLocator.PositionChanged += Location;
+
+            this.compass = Compass.GetDefault();
+            compass.ReadingChanged += Direction;
             //var s = this.Location().Result;
 
             this.rng = new Random();
@@ -46,6 +51,14 @@
             this.AccelerometerSetUp();
             this.Spawing(viewModel);
             this.Physics(viewModel);
+        }
+
+        private void Direction(Compass sender, CompassReadingChangedEventArgs args)
+        {
+            if (this.hasDirection)
+            {
+                return;
+            }
         }
 
         private async void Location(Geolocator sender, PositionChangedEventArgs args)
@@ -61,8 +74,7 @@
             {
                 if ((int)longitude % 2 == 0)
                 {
-                    this.Health.Text = "Blue";
-                    this.cnv1.Background = new SolidColorBrush(Colors.Red);
+                    this.cnv1.Background = new SolidColorBrush(Colors.Blue);
                 }
                 else
                 {
