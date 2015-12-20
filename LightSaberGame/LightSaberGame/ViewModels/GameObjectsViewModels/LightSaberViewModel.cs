@@ -70,9 +70,9 @@
 
             for (int i = 0; i < 10; i++)
             {
-                var left = startX - i * segment * sin;
+                var r = segment / 2;
+                var left = startX - i * r * sin;
                 var top = startY + i * segment * cos;
-                var r = segment/2 ;
                 collisionPoints.Add(new CollisionCircle(left, top, r));
             }
             return collisionPoints;

@@ -20,6 +20,7 @@
     public sealed partial class Game : Page
     {
         private Accelerometer accelerometer;
+        private double scoreMultyplier = 1;
 
         public Game()
         {
@@ -42,11 +43,11 @@
                 x = 100 + rng.NextDouble() * 200;
                 y = 100 + rng.NextDouble() * 200;
                 viewModel.AddShot(x, y, r);
-                if(spawnInterval > 750)
-                {
-                    spawnInterval -= 100;
-                    spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
-                }
+                //if(spawnInterval > 750)
+                //{
+                //    spawnInterval -= 100;
+                //    spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
+                //}
             };
             spawnTimer.Start();
 
@@ -58,6 +59,8 @@
                 var shotsToCheck = viewModel.Shots
                 .Where(z => z.Distance >= 0 && z.Distance <= 1)
                 .ToList();
+
+                viewModel.Health = 100 - viewModel.Shots.Count(z => z.Distance < 0) * 10;
                 if (shotsToCheck.Count == 0)
                 {
                     return;
@@ -80,10 +83,12 @@
                 if(toDelete.Count>0)
                 {
                     this.HitSound.Play();
-                    viewModel.Score += 10;
+                    viewModel.Score += 10* scoreMultyplier;
                 }
                 toDelete.ForEach(viewModel.RemoveShot);
-               
+
+                //viewModel.Health = 100 -viewModel.Shots.Count(z => z.Distance < 0)*10;
+                scoreMultyplier += 0.2;
             };
             physicsTimer.Start();
         }
@@ -129,6 +134,7 @@
             { return; }
             viewModeld.LightSaber.Top += y;
             viewModeld.LightSaber.Left += x;
+            this.scoreMultyplier = 1;
             
         }
 
