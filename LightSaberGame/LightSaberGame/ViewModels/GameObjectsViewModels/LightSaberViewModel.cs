@@ -61,7 +61,7 @@
         {
             var collisionPoints = new List<CollisionCircle>();
             var angle = Math.PI * this.Angle / 180;
-            var sin = Math.Sin(angle);
+            var sin = -Math.Sin(angle);
             var cos = Math.Cos(angle);
             var startX = this.Left - (this.Length + this.Width) * sin;
             var startY = this.Top + this.Length * (1 - cos);

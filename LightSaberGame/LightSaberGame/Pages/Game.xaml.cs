@@ -39,6 +39,7 @@
             spawnTimer.Tick += (snd, arg) =>
             {
                 x = 100 + rng.NextDouble() * 200;
+                y = 100 + rng.NextDouble() * 200;
                 viewModel.AddShot(x, x, r);
             };
             spawnTimer.Start();
@@ -92,7 +93,7 @@
                 var y = reading.AccelerationY;
                 var z = reading.AccelerationZ;
 
-                var newAngel = Math.Atan2(-x, Math.Sqrt(y * y + z * z)) * (180 / Math.PI);
+                var newAngel = -Math.Atan2(-x, Math.Sqrt(y * y + z * z)) * (180 / Math.PI);
 
                 if (Math.Abs(newAngel - viewModel.LightSaber.Angle) >= 10)
                 {
