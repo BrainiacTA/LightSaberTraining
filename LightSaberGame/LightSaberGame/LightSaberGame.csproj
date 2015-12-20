@@ -147,6 +147,9 @@
     <Content Include="Assets\GameImages\EnemyShot.png" />
     <Content Include="Assets\GameImages\Hilt1to4.png" />
     <Content Include="Assets\GameSounds\coolsaber.wav" />
+    <Content Include="Assets\GameSounds\fx5.wav" />
+    <Content Include="Assets\GameSounds\Hum 2.wav" />
+    <Content Include="Assets\GameSounds\SaberOn.wav" />
     <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

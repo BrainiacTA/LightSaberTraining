@@ -45,13 +45,20 @@ namespace LightSaberGame.Views
         public LightSaber()
         {
             this.InitializeComponent();
+            //this.soundOn.Play();
             //this.DataContext = new LightSaberViewModel();
         }
         private void SwitchOn(object sender, DoubleTappedRoutedEventArgs e)
         {
             if (!this.SwitchedOn)
             {
-                this.sound.Play();
+                this.soundSwitchOn.Play();
+                this.soundOn.Play();
+            }
+            else
+            {
+                this.soundSwitchOff.Play();
+                this.soundOn.Stop();
             }
             var oldValue = AnimationProperties.GetExtended(this.blade);
             AnimationProperties.SetExtended(this.blade, !oldValue);
