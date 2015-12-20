@@ -60,7 +60,7 @@
                 {
                     return;
                 }
-                var bladePoints = viewModel.LightSaber.GetCollisionInfo();
+
                 var toDelete = new List<ShotViewModel>();
                 foreach (var item in shotsToCheck)
                 {
@@ -70,7 +70,12 @@
                     }
                 }
 
+                if(toDelete.Count>0)
+                {
+                    this.HitSound.Play();
+                }
                 toDelete.ForEach(viewModel.RemoveShot);
+               
             };
             physicsTimer.Start();
         }

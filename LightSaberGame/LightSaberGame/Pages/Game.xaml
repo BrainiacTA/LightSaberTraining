@@ -64,6 +64,10 @@
                 </userControls:LightSaber.RenderTransform>
 
             </userControls:LightSaber>
+            <MediaElement Name="HitSound"
+            AutoPlay="False"
+            Volume="50"
+            Source="/Assets/GameSounds/lasrhit3.WAV"/>
         </Canvas>
         <!--Player Portrait-->
         <Image Grid.Row="2"/>

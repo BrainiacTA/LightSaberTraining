@@ -149,6 +149,7 @@
     <Content Include="Assets\GameSounds\coolsaber.wav" />
     <Content Include="Assets\GameSounds\fx5.wav" />
     <Content Include="Assets\GameSounds\Hum 2.wav" />
+    <Content Include="Assets\GameSounds\lasrhit3.WAV" />
     <Content Include="Assets\GameSounds\SaberOn.wav" />
     <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
