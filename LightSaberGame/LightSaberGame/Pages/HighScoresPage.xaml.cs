@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LightSaberGame.Data;
+using LightSaberGame.ViewModels.BaseViewModels;
+using LightSaberGame.ViewModels.GameObjectsViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,18 +16,40 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace LightSaberGame.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class HighScoresPage : Page
     {
         public HighScoresPage()
         {
             this.InitializeComponent();
+
+            this.ViewModel = new HighScoresPageViewModes(new HttpServerData("http://api.everlive.com/v1/ORRJBaNvaz3yxDgP/Hero"));
+            this.ViewModel.Heroes = new List<HeroViewModel>();
+        }
+
+        public HighScoresPageViewModes ViewModel
+        {
+            get
+            {
+                return this.DataContext as HighScoresPageViewModes;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
+
+        }
+
+        private void OnPlayButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Game), e);
+        }
+
+        private void OnQuitButtonClick(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof(Game), e);
         }
     }
 }

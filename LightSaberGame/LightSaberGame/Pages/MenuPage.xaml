@@ -22,8 +22,6 @@
             <Setter Property="FontSize" Value="26" />
             <Setter Property="Foreground" Value="#E3CB19" />
             <Setter Property="FontWeight" Value="Bold" />
-            <!--<Setter Property="FontFamily" Value="
-            /Fonts/STARWARS.TTF" />-->
             <Setter Property="Background" Value="{StaticResource BlackToBlue}" />
         </Style>
     </Page.Resources>
@@ -51,12 +49,14 @@
         <Button Content="Play"
                 Grid.Row="1"
                 Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"/>
+                Style="{StaticResource ButtonStyle}"
+                Click="OnPlayButtonClick"/>
 
         <Button Content="HighScores"
                 Grid.Row="3"
                 Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"/>
+                Style="{StaticResource ButtonStyle}"
+                Click="OnHighScoresButtonClick"/>
 
         <Button Content="Rules"
                 Grid.Row="5"
