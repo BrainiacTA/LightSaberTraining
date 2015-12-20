@@ -26,5 +26,15 @@ namespace LightSaberGame.Pages
         {
             this.InitializeComponent();
         }
+
+        private void OnPlayButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Game), e);
+        }
+
+        private void OnHighScoresButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HighScoresPage), e);
+        }
     }
 }
