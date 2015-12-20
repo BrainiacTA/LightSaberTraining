@@ -1,0 +1,159 @@
+﻿<Page
+    x:Class="LightSaberGame.Pages.HighScoresPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LightSaberGame.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="TextBox" x:Key="HighScoreName">
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
+        <Style TargetType="TextBox" x:Key="Scores">
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="Green"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <!--<Grid.Background>
+            <ImageBrush Stretch="Fill"
+                        ImageSource="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3IZb_JAtrCtumBLqutqJ0YCrCe6ocIRZjtSVGh6ruWFSNClhOfQ" />
+        </Grid.Background>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="HIGHS CORES"
+                   Grid.Row="0"
+                   FontSize="50"
+                   FontWeight="Bold"
+                   Foreground="#E3CB19"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBox Text="Lorem Ipsum"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="199865"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+            <TextBox Text="Angela Ahrendts"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="56667"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Craig Federighi"
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="37667"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Phill Dumphy"
+                     Grid.Row="3"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="13500"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="John Doe"
+                     Grid.Row="4"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="6000"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Jonathan Ive"
+                     Grid.Row="5"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="2890"
+                     Grid.Row="5"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Philip Schiller"
+                     Grid.Row="6"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="1400"
+                     Grid.Row="6"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Luca Maestri"
+                     Grid.Row="7"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="900"
+                     Grid.Row="7"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Dan Riccio"
+                     Grid.Row="8"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="600"
+                     Grid.Row="8"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+
+
+            <TextBox Text="Tim Cook"
+                     Grid.Row="9"
+                     Grid.Column="0"
+                     Style="{StaticResource HighScoreName}" />
+            <TextBox Text="70"
+                     Grid.Row="9"
+                     Grid.Column="1"
+                     Style="{StaticResource Scores}" />
+        </Grid>
+    </Grid>
+</Page>
