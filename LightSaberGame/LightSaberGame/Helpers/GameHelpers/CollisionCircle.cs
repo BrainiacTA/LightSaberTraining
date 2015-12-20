@@ -10,7 +10,7 @@
             var yDist = Math.Abs(c1.Y - c2.Y);
             var touchDist = c1.R + c2.R;
 
-            if (xDist > touchDist || yDist > touchDist)
+            if ((xDist+yDist) * (xDist + yDist) > touchDist * touchDist)
             {
                 return false;
             }

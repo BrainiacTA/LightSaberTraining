@@ -40,7 +40,7 @@
             {
                 x = 100 + rng.NextDouble() * 200;
                 y = 100 + rng.NextDouble() * 200;
-                viewModel.AddShot(x, x, r);
+                viewModel.AddShot(x, y, r);
             };
             spawnTimer.Start();
 

@@ -44,8 +44,9 @@
         public override IEnumerable<CollisionCircle> GetCollisionInfo()
         {
             var collisionsPoints = new List<CollisionCircle>();
-            var centerX = this.Left - this.Diameter / 2;
-            collisionsPoints.Add(new CollisionCircle(this.Top, this.Left, this.Diameter/2));
+            var centerX = this.Left + this.Diameter / 2;
+            var centerY = this.Top + this.Diameter / 2;
+            collisionsPoints.Add(new CollisionCircle(centerX, centerY, this.Diameter/2));
 
             return collisionsPoints;
         }

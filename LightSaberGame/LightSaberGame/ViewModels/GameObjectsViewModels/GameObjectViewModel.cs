@@ -17,16 +17,11 @@
             {
                 foreach (var point2 in obj2.GetCollisionInfo())
                 {
-                    if(CollisionCircle.CirclesCollide(point1,point2))
+                    if (CollisionCircle.CirclesCollide(point1, point2))
                     {
                         collided = true;
                         break;
                     }
-                }
-
-                if(collided)
-                {
-                    break;
                 }
             }
 

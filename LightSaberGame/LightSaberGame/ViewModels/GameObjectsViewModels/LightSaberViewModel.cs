@@ -17,7 +17,7 @@
             this.Angle = angle;
         }
         public LightSaberViewModel()
-            :base(0,0)
+            : base(0, 0)
         {
             this.Length = 250;
             this.Angle = 0;
@@ -61,17 +61,18 @@
         {
             var collisionPoints = new List<CollisionCircle>();
             var angle = Math.PI * this.Angle / 180;
-            var sin = -Math.Sin(angle);
+            var sin = Math.Sin(angle);
             var cos = Math.Cos(angle);
-            var startX = this.Left - (this.Length + this.Width) * sin;
-            var startY = this.Top + this.Length * (1 - cos);
 
             var segment = this.Length / 10;
+            var startX = this.Left + (this.Length + segment) * sin;
+            var startY = this.Top + (this.Length + segment) * (1 - cos);
+
             for (int i = 0; i < 10; i++)
             {
-                var left = startX + i * segment * sin;
+                var left = startX - i * segment * sin;
                 var top = startY + i * segment * cos;
-                var r = segment / 2;
+                var r = segment/2 ;
                 collisionPoints.Add(new CollisionCircle(left, top, r));
             }
             return collisionPoints;
