@@ -21,37 +21,31 @@
     {
         private Accelerometer accelerometer;
         private double scoreMultyplier = 1;
+        private readonly Random rng;
 
         public Game()
         {
             this.InitializeComponent();
             this.DataContext = new GameViewModel();
+            this.rng = new Random();
+            var viewModel = this.DataContext as GameViewModel;
 
+            this.AccelerometerSetUp();          
+
+            this.Spawing(viewModel);
+
+            this.Physics(viewModel);
+        }
+
+        private void AccelerometerSetUp()
+        {
             this.accelerometer = Accelerometer.GetDefault();
             this.accelerometer.ReportInterval = 50;
             this.accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+        }
 
-            var spawnTimer = new DispatcherTimer();
-            var spawnInterval = 2000;
-            spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
-            var viewModel = this.DataContext as GameViewModel;
-            var rng = new Random();
-            double x, y;
-            double r = 30;
-            spawnTimer.Tick += (snd, arg) =>
-            {
-                x = 100 + rng.NextDouble() * 200;
-                y = 100 + rng.NextDouble() * 200;
-                viewModel.AddShot(x, y, r);
-                //if(spawnInterval > 750)
-                //{
-                //    spawnInterval -= 100;
-                //    spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
-                //}
-            };
-            spawnTimer.Start();
-
-
+        private void Physics(GameViewModel viewModel)
+        {
             var physicsTimer = new DispatcherTimer();
             physicsTimer.Interval = TimeSpan.FromMilliseconds(100);
             physicsTimer.Tick += (snd, arg) =>
@@ -80,10 +74,10 @@
                     }
                 }
 
-                if(toDelete.Count>0)
+                if (toDelete.Count > 0)
                 {
                     this.HitSound.Play();
-                    viewModel.Score += 10* scoreMultyplier;
+                    viewModel.Score += 10 * scoreMultyplier;
                 }
                 toDelete.ForEach(viewModel.RemoveShot);
 
@@ -91,6 +85,26 @@
                 scoreMultyplier += 0.2;
             };
             physicsTimer.Start();
+        }
+
+        private void Spawing(GameViewModel viewModel)
+        {
+            var spawnTimer = new DispatcherTimer();
+            var spawnInterval = 2000;
+            spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
+            spawnTimer.Tick += (snd, arg) =>
+            {
+                var x = 100 + this.rng.NextDouble() * 200;
+                var y = 100 + this.rng.NextDouble() * 200;
+                var r = 30;
+                viewModel.AddShot(x, y, r);
+                if (spawnInterval > 750)
+                {
+                    spawnInterval -= 100;
+                    spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
+                }
+            };
+            spawnTimer.Start();
         }
 
         async private void ReadingChanged(object Accelerometer, AccelerometerReadingChangedEventArgs e)
