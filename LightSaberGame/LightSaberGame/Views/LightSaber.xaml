@@ -34,6 +34,10 @@
                 ConverterParameter=@VALUE/2.5}" 
             Width="{Binding ElementName=ControlBladeLenght, Path=BladeLenght, Converter={StaticResource MathConverter},ConverterParameter=@VALUE/10}"
             DoubleTapped="SwitchOn"/>
+        <MediaElement Name="sound"
+            AutoPlay="False"
+            Volume="50"
+            Source="/Assets/GameSounds/coolsaber.wav"/>
 
     </Canvas>
 </UserControl>

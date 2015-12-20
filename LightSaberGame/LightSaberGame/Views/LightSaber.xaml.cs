@@ -49,9 +49,14 @@ namespace LightSaberGame.Views
         }
         private void SwitchOn(object sender, DoubleTappedRoutedEventArgs e)
         {
+            if (!this.SwitchedOn)
+            {
+                this.sound.Play();
+            }
             var oldValue = AnimationProperties.GetExtended(this.blade);
             AnimationProperties.SetExtended(this.blade, !oldValue);
             this.SwitchedOn = !this.SwitchedOn;
+
         }
 
         private void cnt_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)

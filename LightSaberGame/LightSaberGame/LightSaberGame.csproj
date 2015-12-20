@@ -146,6 +146,7 @@
     <Content Include="Assets\GameImages\Blade1to10.png" />
     <Content Include="Assets\GameImages\EnemyShot.png" />
     <Content Include="Assets\GameImages\Hilt1to4.png" />
+    <Content Include="Assets\GameSounds\coolsaber.wav" />
     <Content Include="Assets\Saber.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -196,9 +197,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\GameSounds\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
