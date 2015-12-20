@@ -1,0 +1,23 @@
+﻿<UserControl
+    x:Class="LightSaberGame.Views.TiltedTextBlockControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LightSaberGame.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters ="using:LightSaberGame.Helpers.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Name ="Control">
+    <Grid>
+        <TextBlock VerticalAlignment="Top"  HorizontalAlignment="Center" 
+                   FontSize="{Binding ElementName=Control, Path=FontSize}" 
+                   Foreground="{Binding ElementName=Control, Path=Foreground}"
+                   Text="{Binding ElementName=Control, Path=Text}">
+            <TextBlock.Projection>
+                <PlaneProjection RotationX="{Binding ElementName=Control, Path=Angle}"/>
+            </TextBlock.Projection>
+        </TextBlock>
+    </Grid>
+</UserControl>

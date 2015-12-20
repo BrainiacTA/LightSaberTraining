@@ -107,11 +107,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="Pages\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="Pages\ChooseHeroPage.xaml.cs">
       <DependentUpon>ChooseHeroPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +131,9 @@
     </Compile>
     <Compile Include="Views\LightSaber.xaml.cs">
       <DependentUpon>LightSaber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiltedTextBlockControl.xaml.cs">
+      <DependentUpon>TiltedTextBlockControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +165,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
-    <Page Include="Pages\Game.xaml"/>
-
+    <Page Include="Pages\Game.xaml" />
     <Page Include="Pages\ChooseHeroPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -191,6 +190,10 @@
     <Page Include="Views\LightSaber.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TiltedTextBlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
