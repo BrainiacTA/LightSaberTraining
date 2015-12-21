@@ -1,4 +1,6 @@
-﻿using LightSaberGame.Model.SQLLite;
+﻿using LightSaberGame.Data;
+using LightSaberGame.Model;
+using LightSaberGame.Model.SQLLite;
 using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Platform.WinRT;
@@ -56,6 +58,7 @@ namespace LightSaberGame.Pages
                 Name = this.tbUsername.Text,
                 Score = this.score
             };
+            
 
             await this.InsertUserAsync(item);
 

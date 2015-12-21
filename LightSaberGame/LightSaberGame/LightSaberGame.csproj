@@ -110,6 +110,7 @@
     <Compile Include="Model\HeroGetResponse.cs" />
     <Compile Include="Model\HeroModel.cs" />
     <Compile Include="Model\SQLLite\ScoreModel.cs" />
+    <Compile Include="Model\HeroGetSingleResponse.cs" />
     <Compile Include="Pages\EnterScorePage.xaml.cs">
       <DependentUpon>EnterScorePage.xaml</DependentUpon>
     </Compile>
