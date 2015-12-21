@@ -9,7 +9,7 @@
     xmlns:attachedProperties ="using:LightSaberGame.Extensions"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="{StaticResource SpaceBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
@@ -82,10 +82,10 @@
         <Image Grid.Row="2"/>
         <!--Game Score and Health-->
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Score: "/>
-            <TextBlock Name="Score" Text="{Binding Score}" Width="100"/>
-            <TextBlock Text="Health: "/>
-            <TextBlock Name="Health" Text="{Binding Health}"/>
+            <TextBlock Foreground="Yellow" Text="Score: "/>
+            <TextBlock Foreground="Yellow" Name="Score" Text="{Binding Score}" Width="100"/>
+            <TextBlock Foreground="Yellow" Text="Health: "/>
+            <TextBlock Foreground="Yellow" Name="Health" Text="{Binding Health}"/>
         </StackPanel>
     </Grid>
 </Page>
