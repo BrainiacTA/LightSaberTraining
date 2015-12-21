@@ -47,9 +47,9 @@
         <Button Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource MenuButtonStyle}"
-                Click="OnPlayButtonClick">
+                Click="OnAboutButtonClick">
             <Button.Content>
-                <TextBlock Text="Rules" Style="{StaticResource ButtonTextStyle}"/>
+                <TextBlock Text="About" Style="{StaticResource ButtonTextStyle}"/>
             </Button.Content>
         </Button>
 

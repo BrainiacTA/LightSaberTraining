@@ -30,7 +30,7 @@
         private bool hasBackgorund = false;
         private bool hasDirection = false;
         private string background = "/Assets/GameImages/";
-        private bool useAcc = false;
+        private bool useAcc = true;
 
         public Game()
         {
@@ -176,8 +176,8 @@
             spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
             spawnTimer.Tick += (snd, arg) =>
             {
-                var x = 50 + this.rng.NextDouble() * (this.ActualWidth - 50);
-                var y = 50 + this.rng.NextDouble() * (this.ActualHeight - 50);
+                var x = 50 + this.rng.NextDouble() * (this.ActualWidth - 100);
+                var y = 50 + this.rng.NextDouble() * (this.ActualHeight - 100);
                 var r = 30;
                 this.ViewModel.AddShot(x, y, r);
                 if (spawnInterval > 1000)
@@ -219,11 +219,14 @@
 
             //pinchin pinchclose
 
-            var pinchScale = delta.Rotation;
+            if (!this.useAcc)
+            {
+                var angleScale = delta.Rotation;
 
-            var angleOfSet = pinchScale *  5;
-            this.ViewModel.LightSaber.Angle += angleOfSet;
+                var angleOfSet = angleScale * 5;
+                this.ViewModel.LightSaber.Angle += angleOfSet;
 
+            }
 
             if (this.ViewModel.LightSaber.Left + x < 0)
             { return; }

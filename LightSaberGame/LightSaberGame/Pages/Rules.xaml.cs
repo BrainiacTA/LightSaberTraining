@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -21,29 +20,23 @@ namespace LightSaberGame.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MenuPage : Page
+    public sealed partial class Rules : Page
     {
-        public MenuPage()
+        public Rules()
         {
             this.InitializeComponent();
         }
 
-        private void OnPlayButtonClick(object sender, RoutedEventArgs e)
+        private void ScrollViewer_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Game), e);
-        }
-        private void OnAboutButtonClick(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Rules), e);
-        }
-        private void OnHighScoresButtonClick(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(HighScoresPage), e);
-        }
+            var scale = e.Delta.Scale;
 
-        private void OnExitButtonClick(object sender, RoutedEventArgs e)
-        {
-            CoreApplication.Exit();
+            this.Content.FontSize *= scale;
+
+            var delty = -e.Delta.Translation.Y;
+
+            var currentOffset = this.Scroller.VerticalOffset;
+            this.Scroller.ScrollToVerticalOffset(currentOffset + delty*5);
         }
     }
 }
