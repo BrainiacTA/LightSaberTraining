@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\HeroPickPageViewModel.cs" />
     <Compile Include="ViewModels\HighScoresPageViewModes.cs" />
     <Compile Include="ViewModels\GameObjectsViewModels\GameObjectViewModel.cs" />
     <Compile Include="ViewModels\HeroViewModel.cs" />
