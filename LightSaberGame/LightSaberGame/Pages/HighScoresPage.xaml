@@ -31,7 +31,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource ButtonTextStyle}" Margin="0 0 150 0" Text="{Binding Name}"/>
+                            <TextBlock Style="{StaticResource ButtonTextStyle}" Margin="0 0 100 0" Text="{Binding Name}"/>
                             <TextBlock Style="{StaticResource ButtonTextStyle}" Text="{Binding Score}"/>
                         </StackPanel>
                     </DataTemplate>

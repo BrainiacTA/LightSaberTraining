@@ -11,8 +11,8 @@
     <ImageBrush ImageSource="/Assets/GameImages/buttonBackground.png" x:Key="buttonBackground"/>
     
     <Style TargetType="TextBlock" x:Key="ButtonTextStyle">
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="Orange" />
+        <Setter Property="TextAlignment" Value="Justify"/>
+        <Setter Property="Foreground" Value="Red" />
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="FontWeight" Value="ExtraBold"/>
     </Style>

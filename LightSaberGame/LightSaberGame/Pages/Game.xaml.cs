@@ -204,12 +204,6 @@
             });
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var viewModeld = this.DataContext as GameViewModel;
-            viewModeld.LightSaber.Angle += 30;
-        }
-
         private void SaberMove(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var delta = e.Delta;

@@ -107,11 +107,11 @@
     <Compile Include="Helpers\Converters\MathConvertor.cs" />
     <Compile Include="Helpers\GameHelpers\CollisionCircle.cs" />
     <Compile Include="Helpers\GameHelpers\GeoLocatorHelper.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\HeroGetResponse.cs" />
     <Compile Include="Model\HeroModel.cs" />
+    <Compile Include="Pages\EnterScorePage.xaml.cs">
+      <DependentUpon>EnterScorePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
@@ -183,9 +183,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Pages\EnterScorePage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Game.xaml" />
     <Page Include="Pages\ChooseHeroPage.xaml">
