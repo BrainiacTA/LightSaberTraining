@@ -12,9 +12,9 @@
         public HighScoresPage()
         {
             this.InitializeComponent();
-
-            this.ViewModel = new HighScoresPageViewModes(new HttpServerData("http://api.everlive.com/v1/ORRJBaNvaz3yxDgP/Hero"));
-            this.ViewModel.Heroes = new List<HeroViewModel>();
+            this.DataContext = new HighScoresPageViewModes(new HttpServerData("http://api.everlive.com/v1/ORRJBaNvaz3yxDgP/Hero"));
+            //this.ViewModel = new HighScoresPageViewModes(new HttpServerData("http://api.everlive.com/v1/ORRJBaNvaz3yxDgP/Hero"));
+            //this.ViewModel.Heroes = new List<HeroViewModel>();
         }
 
         public HighScoresPageViewModes ViewModel

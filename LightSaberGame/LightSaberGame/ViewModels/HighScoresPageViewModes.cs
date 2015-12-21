@@ -1,12 +1,13 @@
 ﻿namespace LightSaberGame.ViewModels
 {
+    using BaseViewModels;
     using LightSaberGame.Data;
     using LightSaberGame.Extensions;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
 
-    public class HighScoresPageViewModes
+    public class HighScoresPageViewModes : BaseViewModel
     {
         private ObservableCollection<HeroViewModel> heroes;
         private IData data;
@@ -29,7 +30,10 @@
                 }
                 this.heroes.Clear();
 
-                value.ForEach(heroes.Add);
+                foreach (var item in value)
+                {
+                    this.heroes.Add(item);
+                }
             }
         }
 
@@ -41,8 +45,14 @@
 
         private async void Refresh()
         {
-            this.Heroes = (await this.data.GetHeroes())
-                                        .Select(m => new HeroViewModel(m.Name, m.Score));
+            var data = await this.data.GetHeroes();
+            var list = new List<HeroViewModel>();
+            foreach (var item in data)
+            {
+                list.Add(new HeroViewModel(item.Name, item.Score));
+            }
+            //var heroes = data.Select(m => new HeroViewModel(m.Name, m.Score));
+            this.Heroes = list;
         }
 
     }

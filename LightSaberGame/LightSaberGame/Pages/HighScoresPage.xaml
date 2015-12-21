@@ -19,7 +19,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="HIGHS CORES"
+        <TextBlock Text="HIGHS SCORES"
                    Grid.Row="0"
                    FontSize="50"
                    FontWeight="Bold"
@@ -27,20 +27,18 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <Grid Grid.Row="2">
-            <StackPanel Name="scoresList">
-                <ListBox ItemsSource="{Binding Heroes}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Name}"
+            <ListView ItemsSource="{Binding Heroes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}"
                                            Style="{StaticResource HighScoreName}"/>
-                                <TextBlock Text="{Binding Score}"
+                            <TextBlock Text="{Binding Score}"
                                            Style="{StaticResource Scores}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
         <Grid Grid.Row="4">
             <Grid>
