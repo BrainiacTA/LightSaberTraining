@@ -37,7 +37,7 @@
 
         private void OnHExitButtonClick(object sender, RoutedEventArgs e)
         {
-            CoreApplication.Exit();
+            this.Frame.Navigate(typeof(MenuPage), null);
         }
     }
 }
