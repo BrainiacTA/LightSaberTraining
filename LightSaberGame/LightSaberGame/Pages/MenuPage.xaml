@@ -9,10 +9,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource SpaceBackground}">
-        <!--<Grid.Background>
-            <ImageBrush Stretch="Fill"
-                        ImageSource="http://www.topdesignmag.com/wp-content/uploads/2011/01/Darth-Vader1.jpg" />
-        </Grid.Background>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*" />
             <RowDefinition Height="1*"/>
@@ -61,7 +57,7 @@
         <Button Grid.Row="3"
                 Grid.Column="1"
                 Style="{StaticResource MenuButtonStyle}"
-                Click="OnPlayButtonClick">
+                Click="OnHighScoresButtonClick">
             <Button.Content>
                 <TextBlock Text="HighScores" Style="{StaticResource ButtonTextStyle}"/>
             </Button.Content>
@@ -71,7 +67,7 @@
         <Button Grid.Row="4"
                 Grid.Column="1"
                 Style="{StaticResource MenuButtonStyle}"
-                Click="OnPlayButtonClick">
+                Click="OnExitButtonClick">
             <Button.Content>
                 <TextBlock Text="Exit" Style="{StaticResource ButtonTextStyle}"/>
             </Button.Content>

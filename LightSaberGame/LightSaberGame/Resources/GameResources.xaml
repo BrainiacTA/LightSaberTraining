@@ -28,4 +28,34 @@
         <Setter Property="FontSize" Value="35"/>
     </Style>
     <converters:MathConverter x:Key="MathConverter"></converters:MathConverter>
+
+    <Style TargetType="TextBox" x:Key="HighScoreName">
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="Scores">
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style TargetType="Button"
+               x:Key="HighScorePageButtonStyle">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="Foreground" Value="#E3CB19" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
 </ResourceDictionary>
+    
+    

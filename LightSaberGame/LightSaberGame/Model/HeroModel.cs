@@ -11,12 +11,12 @@ namespace LightSaberGame.Model
     public class HeroModel
     {
         public HeroModel()
-            : this(string.Empty, string.Empty)
+            : this(string.Empty, 0)
         {
 
         }
 
-        public HeroModel(string name, string score)
+        public HeroModel(string name, int score)
         {
             this.Name = name;
             this.Score = score;
@@ -26,6 +26,6 @@ namespace LightSaberGame.Model
         public string Name { get; set; }
 
         [JsonProperty("score")]
-        public string Score { get; set; }
+        public int Score { get; set; }
     }
 }

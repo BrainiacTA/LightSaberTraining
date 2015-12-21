@@ -7,33 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <Style TargetType="TextBox" x:Key="HighScoreName">
-            <Setter Property="FontSize" Value="25" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="Transparent"/>
-        </Style>
-        <Style TargetType="TextBox" x:Key="Scores">
-            <Setter Property="FontSize" Value="25" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Background" Value="Transparent"/>
-
-        </Style>
-        <Style TargetType="Button"
-               x:Key="ButtonStyle">
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Stretch" />
-            <Setter Property="FontSize" Value="26" />
-            <Setter Property="Foreground" Value="#E3CB19" />
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-    </Page.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush Stretch="Fill"
@@ -54,18 +27,20 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
         <Grid Grid.Row="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <TextBox Text="asdfasdfa"
-                         Grid.Column="0"
-                         Style="{StaticResource HighScoreName}" />
-                <TextBox Text="asdfasd"
-                         Grid.Column="1"
-                         Style="{StaticResource Scores}" />
-            </Grid>
+            <StackPanel Name="scoresList">
+                <ListBox ItemsSource="{Binding Heroes}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"
+                                           Style="{StaticResource HighScoreName}"/>
+                                <TextBlock Text="{Binding Score}"
+                                           Style="{StaticResource Scores}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </Grid>
         <Grid Grid.Row="4">
             <Grid>
@@ -75,12 +50,12 @@
                 </Grid.ColumnDefinitions>
                 <Button Content="Play"
                         Grid.Column="0"
-                        Style="{StaticResource ButtonStyle}"
-                        Click="OnPlayButtonClick"/>
-                <Button Content="Quit"
+                        Style="{StaticResource HighScorePageButtonStyle}"
+                        Click="OnHPlayButtonClick"/>
+                <Button Content="Exit"
                         Grid.Column="1"
-                        Style="{StaticResource ButtonStyle}"
-                        Click="OnQuitButtonClick"/>
+                        Style="{StaticResource HighScorePageButtonStyle}"
+                        Click="OnHExitButtonClick" />
             </Grid>
         </Grid>
     </Grid>

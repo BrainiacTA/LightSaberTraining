@@ -1,18 +1,19 @@
 ﻿namespace LightSaberGame.ViewModels
 {
     using LightSaberGame.ViewModels.BaseViewModels;
+
     public class HeroViewModel : BaseViewModel
     {
         private string name;
-        private string score;
+        private int score;
 
         public HeroViewModel()
         {
             this.Name = string.Empty;
-            this.score = string.Empty;
+            this.score = 0;
         }
 
-        public HeroViewModel(string name, string score)
+        public HeroViewModel(string name, int score)
         {
             this.Name = name;
             this.Score = score;
@@ -31,7 +32,7 @@
             }
         }
 
-        public string Score
+        public int Score
         {
             get
             {

@@ -31,7 +31,6 @@
 
                 value.ForEach(heroes.Add);
             }
-
         }
 
         public HighScoresPageViewModes(IData data)
@@ -45,5 +44,6 @@
             this.Heroes = (await this.data.GetHeroes())
                                         .Select(m => new HeroViewModel(m.Name, m.Score));
         }
+
     }
 }

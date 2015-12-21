@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -35,6 +36,11 @@ namespace LightSaberGame.Pages
         private void OnHighScoresButtonClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(HighScoresPage), e);
+        }
+
+        private void OnExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            CoreApplication.Exit();
         }
     }
 }

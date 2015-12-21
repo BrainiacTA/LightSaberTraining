@@ -3,6 +3,7 @@
     using LightSaberGame.Data;
     using LightSaberGame.ViewModels;
     using System.Collections.Generic;
+    using Windows.ApplicationModel.Core;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
 
@@ -29,14 +30,14 @@
 
         }
 
-        private void OnPlayButtonClick(object sender, RoutedEventArgs e)
+        private void OnHPlayButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Game), e);
+            this.Frame.Navigate(typeof(Game), null);
         }
 
-        private void OnQuitButtonClick(object sender, RoutedEventArgs e)
+        private void OnHExitButtonClick(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(Game), e);
+            CoreApplication.Exit();
         }
     }
 }
