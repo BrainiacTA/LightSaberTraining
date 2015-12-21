@@ -219,9 +219,9 @@
 
             //pinchin pinchclose
 
-            var pinchScale = delta.Rotation;
+            var angleScale = delta.Rotation;
 
-            var angleOfSet = pinchScale *  5;
+            var angleOfSet = angleScale *  5;
             this.ViewModel.LightSaber.Angle += angleOfSet;
 
 

@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="LightSaberGame.Pages.Rules"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LightSaberGame.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource SpaceBackground}">
+        <ScrollViewer 
+            Name="Scroller"
+            HorizontalAlignment="Center" 
+            VerticalScrollBarVisibility="Hidden"
+            HorizontalScrollMode="Disabled"
+            ManipulationDelta="ScrollViewer_ManipulationDelta"
+            ManipulationMode="All">
+
+            <TextBlock Name="Content" Style="{StaticResource ButtonTextStyle}" TextWrapping="Wrap" TextAlignment="Center"
+                        ManipulationDelta="ScrollViewer_ManipulationDelta" Foreground="Yellow"
+            ManipulationMode="All">
+                 First I would like to thank you for chosing our game. It simple but i can be very difficult.<LineBreak/><LineBreak/>          
+                There are some functionalities that are not apperant on first glance. <LineBreak/>
+                You battle on a planet depending on your location. Additionaly the background varries depending in which direction you are facing. <LineBreak/><LineBreak/>
+                Controls.<LineBreak/>
+                HoldTap on saber switches it on and off.<LineBreak/>
+                Motion is done by dragging.<LineBreak/>
+                Rotation can be done in two ways accelerometer and rotate gesture.<LineBreak/>
+                Each time you get 100 live, and loose 10 per missed shot.<LineBreak/>
+                There is a score multiplier which resets when the saber is moved on the screen. Rotation doesn't reste mutiplier<LineBreak/>
+                Your scores are kept localy, and your high socre is put on the leaderboard.<LineBreak/>
+            </TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Page>
