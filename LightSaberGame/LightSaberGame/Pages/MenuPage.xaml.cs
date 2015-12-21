@@ -40,8 +40,7 @@ namespace LightSaberGame.Pages
 
         private void OnExitButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(EnterScorePage), 10.0);
-            //CoreApplication.Exit();
+            CoreApplication.Exit();
         }
     }
 }

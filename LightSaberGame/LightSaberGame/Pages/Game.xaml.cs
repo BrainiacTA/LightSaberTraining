@@ -30,6 +30,7 @@
         private bool hasBackgorund = false;
         private bool hasDirection = false;
         private string background = "/Assets/GameImages/";
+        private bool useAcc = false;
 
         public Game()
         {
@@ -47,7 +48,10 @@
 
             this.rng = new Random();
 
-            this.AccelerometerSetUp();
+            if (this.useAcc)
+            {
+                this.AccelerometerSetUp();
+            }
             this.Spawing();
             this.Physics();
         }
@@ -71,7 +75,7 @@
 
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                if (direction<180)
+                if (direction < 180)
                 {
                     this.background += ".jpg";
                 }
@@ -88,7 +92,7 @@
 
         private async void Location(Geolocator sender, PositionChangedEventArgs args)
         {
-            if(this.hasBackgorund)
+            if (this.hasBackgorund)
             {
                 return;
             }
@@ -106,7 +110,7 @@
                     this.background += "city";
                 }
             });
-           
+
             this.hasBackgorund = true;
         }
 
@@ -155,7 +159,11 @@
                 }
                 toDelete.ForEach(this.ViewModel.RemoveShot);
 
-                this.ViewModel.Health = 100 - this.ViewModel.Shots.Count(z => z.Distance < 0)*10;
+                this.ViewModel.Health = 100 - this.ViewModel.Shots.Count(z => z.Distance < 0) * 10;
+                if (this.ViewModel.Health <= 0)
+                {
+                    this.Frame.Navigate(typeof(EnterScorePage), this.ViewModel.Score);
+                }
                 scoreMultyplier += 0.2;
             };
             physicsTimer.Start();
@@ -164,15 +172,15 @@
         private void Spawing()
         {
             var spawnTimer = new DispatcherTimer();
-            var spawnInterval = 2000;
+            var spawnInterval = 2500;
             spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
             spawnTimer.Tick += (snd, arg) =>
             {
-                var x = 100 + this.rng.NextDouble() * 200;
-                var y = 100 + this.rng.NextDouble() * 200;
+                var x = 50 + this.rng.NextDouble() * (this.ActualWidth - 50);
+                var y = 50 + this.rng.NextDouble() * (this.ActualHeight - 50);
                 var r = 30;
                 this.ViewModel.AddShot(x, y, r);
-                if (spawnInterval > 750)
+                if (spawnInterval > 1000)
                 {
                     spawnInterval -= 100;
                     spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
@@ -185,8 +193,6 @@
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                var viewModel = this.DataContext as GameViewModel;
-
                 AccelerometerReading reading = e.Reading;
 
                 var x = reading.AccelerationX;
@@ -195,9 +201,9 @@
 
                 var newAngel = -Math.Atan2(-x, Math.Sqrt(y * y + z * z)) * (180 / Math.PI);
 
-                if (Math.Abs(newAngel - viewModel.LightSaber.Angle) >= 10)
+                if (Math.Abs(newAngel - this.ViewModel.LightSaber.Angle) >= 10)
                 {
-                    viewModel.LightSaber.Angle = newAngel;
+                    this.ViewModel.LightSaber.Angle = newAngel;
                     this.MoveSound.Play();
                 }
 
@@ -211,13 +217,20 @@
             var x = delta.Translation.X;
             var y = delta.Translation.Y;
 
-            var viewModeld = this.DataContext as GameViewModel;
-            if (viewModeld.LightSaber.Left + x < 0)
+            //pinchin pinchclose
+
+            var pinchScale = delta.Rotation;
+
+            var angleOfSet = pinchScale *  5;
+            this.ViewModel.LightSaber.Angle += angleOfSet;
+
+
+            if (this.ViewModel.LightSaber.Left + x < 0)
             { return; }
-            viewModeld.LightSaber.Top += y;
-            viewModeld.LightSaber.Left += x;
+            this.ViewModel.LightSaber.Top += y;
+            this.ViewModel.LightSaber.Left += x;
             this.scoreMultyplier = 1;
-            
+
         }
 
         private void saber_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
@@ -246,7 +259,7 @@
             var shotTargeted = viewModel.Shots
                 .Where(z => Math.Abs(z.Left - location.X) <= range &&
                              Math.Abs(z.Top - location.Y) <= range
-                             && z.Distance>0)
+                             && z.Distance > 0)
                 .ToList();
 
             var shotss = shotTargeted;

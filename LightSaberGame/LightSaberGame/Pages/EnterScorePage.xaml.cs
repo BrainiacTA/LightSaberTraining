@@ -58,6 +58,8 @@ namespace LightSaberGame.Pages
             };
 
             await this.InsertUserAsync(item);
+
+            this.Frame.Navigate(typeof(MenuPage));
         }
 
         //private async void AddNewItemButtonClick(object sender, RoutedEventArgs e)

@@ -42,7 +42,6 @@
             HorizontalAlignment="Stretch" 
             VerticalAlignment="Top"
             Background="White"
-            Height="75"
             Margin="50 0 50 0"
             Grid.Row="2"
             />
