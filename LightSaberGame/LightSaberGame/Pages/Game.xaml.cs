@@ -30,7 +30,7 @@
         private bool hasBackgorund = false;
         private bool hasDirection = false;
         private string background = "/Assets/GameImages/";
-        private bool useAcc = false;
+        private bool useAcc = true;
 
         public Game()
         {
@@ -219,11 +219,14 @@
 
             //pinchin pinchclose
 
-            var angleScale = delta.Rotation;
+            if (!this.useAcc)
+            {
+                var angleScale = delta.Rotation;
 
-            var angleOfSet = angleScale *  5;
-            this.ViewModel.LightSaber.Angle += angleOfSet;
+                var angleOfSet = angleScale * 5;
+                this.ViewModel.LightSaber.Angle += angleOfSet;
 
+            }
 
             if (this.ViewModel.LightSaber.Left + x < 0)
             { return; }
