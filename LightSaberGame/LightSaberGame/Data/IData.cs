@@ -11,6 +11,6 @@ namespace LightSaberGame.Data
     {
         Task<IEnumerable<HeroModel>> GetHeroes();
 
-        HeroModel AddHero(HeroModel model);
+        Task<HeroModel> AddHero(HeroModel model);
     }
 }

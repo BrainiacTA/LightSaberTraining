@@ -15,9 +15,24 @@
 
         public string Url { get; set; }
 
-        public HeroModel AddHero(HeroModel model)
+        public async Task<HeroModel> AddHero(HeroModel model)
         {
-            throw new NotImplementedException();
+            var client = new HttpClient();
+
+            var endPointUrl = "http://api.everlive.com/v1/ORRJBaNvaz3yxDgP/Hero";
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(endPointUrl));
+            client.DefaultRequestHeaders.Accept.Add(new Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue("application/json"));
+
+            request.Content = new HttpStringContent(JsonConvert.SerializeObject(model), Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+
+            var response = await client.SendRequestAsync(request);
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            var result = JsonConvert.DeserializeObject<HeroGetSingleResponse>(content);
+
+            return result.Result;
+
         }
 
         public async Task<IEnumerable<HeroModel>> GetHeroes()
