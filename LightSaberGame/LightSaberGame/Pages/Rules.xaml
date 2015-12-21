@@ -18,7 +18,9 @@
 
             <TextBlock Name="Content" Style="{StaticResource ButtonTextStyle}" TextWrapping="Wrap" TextAlignment="Center"
                         ManipulationDelta="ScrollViewer_ManipulationDelta" Foreground="Yellow"
-            ManipulationMode="All">
+            ManipulationMode="All"
+                       Holding="Content_Holding"
+                       IsHoldingEnabled="True">
                  First I would like to thank you for chosing our game. It simple but i can be very difficult.<LineBreak/><LineBreak/>          
                 There are some functionalities that are not apperant on first glance. <LineBreak/>
                 You battle on a planet depending on your location. Additionaly the background varries depending in which direction you are facing. <LineBreak/><LineBreak/>

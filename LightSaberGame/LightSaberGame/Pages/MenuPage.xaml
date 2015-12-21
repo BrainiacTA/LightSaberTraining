@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
 
         <userControl:TiltedTextBlockControl 
-            FontSize="40"
+            FontSize="35"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Foreground="Yellow"

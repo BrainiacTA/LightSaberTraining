@@ -38,5 +38,10 @@ namespace LightSaberGame.Pages
             var currentOffset = this.Scroller.VerticalOffset;
             this.Scroller.ScrollToVerticalOffset(currentOffset + delty*5);
         }
+
+        private void Content_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MenuPage));
+        }
     }
 }

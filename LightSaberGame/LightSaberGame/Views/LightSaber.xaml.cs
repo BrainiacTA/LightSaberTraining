@@ -65,5 +65,22 @@ namespace LightSaberGame.Views
             this.SwitchedOn = !this.SwitchedOn;
 
         }
+
+        //private void hilt_Holding(object sender, HoldingRoutedEventArgs e)
+        //{
+        //    if (!this.SwitchedOn)
+        //    {
+        //        this.soundSwitchOn.Play();
+        //        this.soundOn.Play();
+        //    }
+        //    else
+        //    {
+        //        this.soundSwitchOff.Play();
+        //        this.soundOn.Stop();
+        //    }
+        //    var oldValue = AnimationProperties.GetExtended(this.blade);
+        //    AnimationProperties.SetExtended(this.blade, !oldValue);
+        //    this.SwitchedOn = !this.SwitchedOn;
+        //}
     }
 }
