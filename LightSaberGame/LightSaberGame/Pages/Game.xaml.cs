@@ -176,8 +176,8 @@
             spawnTimer.Interval = TimeSpan.FromMilliseconds(spawnInterval);
             spawnTimer.Tick += (snd, arg) =>
             {
-                var x = 50 + this.rng.NextDouble() * (this.ActualWidth - 50);
-                var y = 50 + this.rng.NextDouble() * (this.ActualHeight - 50);
+                var x = 50 + this.rng.NextDouble() * (this.ActualWidth - 100);
+                var y = 50 + this.rng.NextDouble() * (this.ActualHeight - 100);
                 var r = 30;
                 this.ViewModel.AddShot(x, y, r);
                 if (spawnInterval > 1000)
